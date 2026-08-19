@@ -339,12 +339,6 @@ ul{ margin:0; padding:0; list-style:none; }
 /* ============ Project links (cards act as links) ============ */
 .project-card-link{ display:block; height:100%; }
 .project-card{ position:relative; }
-.project-card .card-arrow{
-  position:absolute; top:26px; right:26px; width:30px; height:30px; border-radius:50%;
-  border:1px solid var(--border); display:flex; align-items:center; justify-content:center;
-  color: var(--text-faint); font-size:.9rem; transition: all .25s var(--ease);
-}
-.project-card:hover .card-arrow{ background: var(--accent); color:#051512; border-color: var(--accent); transform: rotate(45deg); }
 
 /* ============ Project detail page ============ */
 .crumb-bar{ padding: 28px 0 0; }
@@ -403,6 +397,7 @@ ul{ margin:0; padding:0; list-style:none; }
 .side-card .chip-row{ margin-top:0; }
 .side-cta{ display:flex; flex-direction:column; gap:10px; }
 .side-cta .btn{ width:100%; }
+.cv-note{ font-size:.82rem; color: var(--text-faint); margin-bottom:2px; }
 
 .proj-nav{ margin-top: 90px; padding: 40px 0 30px; border-top:1px solid var(--border); display:grid; grid-template-columns: 1fr 1fr; gap:20px; }
 .proj-nav-link{

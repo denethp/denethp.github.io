@@ -1,15 +1,18 @@
-document.getElementById('year').textContent = new Date().getFullYear();
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-/* Mobile nav toggle */
+/* Mobile nav toggle (only present on the main page header) */
 const navToggle = document.getElementById('navToggle');
 const nav = document.getElementById('nav');
-navToggle.addEventListener('click', () => {
-  const isOpen = nav.classList.toggle('is-open');
-  navToggle.setAttribute('aria-expanded', isOpen);
-});
-document.querySelectorAll('#navLinks a').forEach(a => {
-  a.addEventListener('click', () => nav.classList.remove('is-open'));
-});
+if (navToggle && nav) {
+  navToggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  document.querySelectorAll('#navLinks a').forEach(a => {
+    a.addEventListener('click', () => nav.classList.remove('is-open'));
+  });
+}
 
 /* Scroll reveal */
 const revealEls = document.querySelectorAll(
