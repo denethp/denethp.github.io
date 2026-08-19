@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Micromouse Autonomous Maze Solver — Deneth Priyadarshana</title>
+<meta name="description" content="A micromouse built to explore, map and solve a 16×16 maze at speed — competing nationally as Team PRISM.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300e5c7%22>&#9670;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="nav-inner container">
+    <a href="../index.html#home" class="brand">
+      <span class="brand-mark">DP</span><span class="brand-dot">.</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="../index.html#about"><span class="idx">01</span>About</a>
+      <a href="../index.html#education"><span class="idx">02</span>Education</a>
+      <a href="../index.html#projects"><span class="idx">03</span>Projects</a>
+      <a href="../index.html#skills"><span class="idx">04</span>Skills</a>
+      <a href="../index.html#experience"><span class="idx">05</span>Experience</a>
+      <a href="../index.html#contact"><span class="idx">06</span>Contact</a>
+    </nav>
+    <a class="btn btn-ghost nav-cv" href="../assets/files/Deneth_Priyadarshana_CV.pdf" download>Resume &darr;</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <nav class="crumb-bar container" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span>/</span><a href="../index.html#projects">Projects</a><span>/</span><span>Micromouse Autonomous Maze Solver</span>
+  </nav>
+
+  <section class="proj-hero container">
+    <div class="proj-hero-top">
+      <div class="proj-meta-row">
+        <span class="proj-badge is-accent">In Progress</span>
+        <span class="proj-badge">Team Project — PRISM</span>
+        <span class="proj-badge">Jun 2025 – Present</span>
+      </div>
+      <a href="../index.html#projects" class="btn btn-outline">&larr; All Projects</a>
+    </div>
+    <h1 class="proj-title">Micromouse Autonomous Maze Solver</h1>
+    <p class="proj-lede">A micromouse built to explore, map and solve a 16×16 maze at speed — competing nationally as Team PRISM.</p>
+
+    <div class="proj-media">
+      <img src="../assets/img/projects/micromouse-maze-solver.jpg" alt="Micromouse Autonomous Maze Solver" loading="lazy"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="media-placeholder" style="display:none">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5-9 9"/></svg>
+        <span>Image coming soon</span>
+      </div>
+    </div>
+    <p class="media-hint">Have a photo or video of this project? Send it over and I'll add it here.</p>
+  </section>
+
+  <section class="section" style="padding-top:0; border-top:none;">
+    <div class="container proj-body">
+      <div class="proj-main">
+        <h2>Overview</h2>
+        <p>Micromouse competitions reward the intersection of speed and certainty: a robot has to map an unknown 16×16 maze in real time, then commit to the fastest verified route through it. This project tackles both halves of that problem — exploration and optimal-path execution — on a custom STM32-based mouse.</p>
+        <p>Real-time maze mapping runs alongside a flood-fill algorithm that recomputes the shortest known path to the goal as new walls are discovered. Once the maze is sufficiently mapped, the mouse switches to a speed run using motion-profiled trajectories.</p>
+        <p>Getting the mouse to actually hit those trajectories required PID control tuned with both feedback and feedforward terms, with the control loop parameters first modeled and validated in MATLAB before being deployed to hardware — critical for a robot where a few degrees of heading error compounds fast in a tight maze.</p>
+
+        <h2>Key Features</h2>
+        <ul class="feature-list">
+          <li><span class="f-num">01</span><span>Real-time maze mapping during exploration runs, updated wall-by-wall as the mouse moves</span></li>
+          <li><span class="f-num">02</span><span>Flood-fill algorithm for continuously recomputing the shortest verified path to the goal</span></li>
+          <li><span class="f-num">03</span><span>Motion profiling for smooth acceleration/deceleration through straights and turns</span></li>
+          <li><span class="f-num">04</span><span>PID motor control with feedback and feedforward terms tuned via MATLAB system modeling</span></li>
+          <li><span class="f-num">05</span><span>Selected among the Top 10 teams (Team Maze Hackers) at Micromaze 2.0, IIT</span></li>
+        </ul>
+      </div>
+
+      <aside class="proj-side">
+        <div class="side-card">
+          <h4>Project Info</h4>
+          <div class="side-row"><span>Status</span><span>In Progress</span></div>
+          <div class="side-row"><span>Timeline</span><span>Jun 2025 – Present</span></div>
+          <div class="side-row"><span>Role</span><span>Motion Control &amp; Path Planning</span></div>
+          <div class="side-row"><span>Team</span><span>Team PRISM</span></div>
+        </div>
+        <div class="side-card">
+          <h4>Tech Stack</h4>
+          <div class="chip-row"><span>STM32</span><span>N20 DC Motors (1000 RPM)</span><span>C/C++</span><span>Altium Designer</span><span>SOLIDWORKS</span><span>MATLAB</span></div>
+        </div>
+        <div class="side-card side-cta">
+          <a href="../assets/files/Deneth_Priyadarshana_CV.pdf" download class="btn btn-primary">Download CV</a>
+          <a href="../index.html#contact" class="btn btn-outline">Get in Touch</a>
+        </div>
+      </aside>
+    </div>
+
+    <div class="container proj-nav">
+      <a href="6dof-robotic-arm.html" class="proj-nav-link prev">
+        <span class="proj-nav-label">&larr; Previous</span>
+        <span class="proj-nav-title">6-DOF Robotic Arm</span>
+      </a>
+      <a href="ros2-vision-line-follower.html" class="proj-nav-link next">
+        <span class="proj-nav-label">Next &rarr;</span>
+        <span class="proj-nav-title">ROS 2 Vision-Based Autonomous Line Following Robot</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>&copy; <span id="year"></span> Deneth Priyadarshana. Built with HTML, CSS &amp; JS.</p>
+    <a href="../index.html#home" class="back-top">Back to top &uarr;</a>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6-DOF Robotic Arm — Deneth Priyadarshana</title>
+<meta name="description" content="A computer-vision guided 6-DOF robotic arm — from a hand-cut aluminium frame to closed-loop pick-and-place.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300e5c7%22>&#9670;</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="nav-inner container">
+    <a href="../index.html#home" class="brand">
+      <span class="brand-mark">DP</span><span class="brand-dot">.</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="../index.html#about"><span class="idx">01</span>About</a>
+      <a href="../index.html#education"><span class="idx">02</span>Education</a>
+      <a href="../index.html#projects"><span class="idx">03</span>Projects</a>
+      <a href="../index.html#skills"><span class="idx">04</span>Skills</a>
+      <a href="../index.html#experience"><span class="idx">05</span>Experience</a>
+      <a href="../index.html#contact"><span class="idx">06</span>Contact</a>
+    </nav>
+    <a class="btn btn-ghost nav-cv" href="../assets/files/Deneth_Priyadarshana_CV.pdf" download>Resume &darr;</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <nav class="crumb-bar container" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span>/</span><a href="../index.html#projects">Projects</a><span>/</span><span>6-DOF Robotic Arm</span>
+  </nav>
+
+  <section class="proj-hero container">
+    <div class="proj-hero-top">
+      <div class="proj-meta-row">
+        <span class="proj-badge is-accent">Completed</span>
+        <span class="proj-badge">University Project</span>
+        <span class="proj-badge">Feb 2026 – Jul 2026</span>
+      </div>
+      <a href="../index.html#projects" class="btn btn-outline">&larr; All Projects</a>
+    </div>
+    <h1 class="proj-title">6-DOF Robotic Arm</h1>
+    <p class="proj-lede">A computer-vision guided 6-DOF robotic arm — from a hand-cut aluminium frame to closed-loop pick-and-place.</p>
+
+    <div class="proj-media">
+      <img src="../assets/img/projects/6dof-robotic-arm.jpg" alt="6-DOF Robotic Arm" loading="lazy"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="media-placeholder" style="display:none">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5-9 9"/></svg>
+        <span>Image coming soon</span>
+      </div>
+    </div>
+    <p class="media-hint">Have a photo or video of this project? Send it over and I'll add it here.</p>
+  </section>
+
+  <section class="section" style="padding-top:0; border-top:none;">
+    <div class="container proj-body">
+      <div class="proj-main">
+        <h2>Overview</h2>
+        <p>This project set out to build a full six-degree-of-freedom robotic arm capable of perceiving, localizing and manipulating objects autonomously. The mechanical structure was custom-designed and fabricated from 4mm sheet metal aluminium, chosen for its balance of rigidity and weight for a desktop-scale arm.</p>
+        <p>On the software side, I modeled the arm&#x27;s forward and inverse kinematics in MATLAB, simulating joint trajectories before ever touching hardware. This let me validate reachability and avoid singularities ahead of time, then carry the same kinematic model over into the STM32 firmware that drives the six NEMA stepper motors in coordinated motion.</p>
+        <p>A camera-based computer vision pipeline handles object detection and localization, converting pixel coordinates into arm-frame targets that the inverse kinematics solver turns into joint angles — closing the loop from &#x27;see it&#x27; to &#x27;pick it up&#x27;.</p>
+
+        <h2>Key Features</h2>
+        <ul class="feature-list">
+          <li><span class="f-num">01</span><span>Custom 4mm aluminium sheet-metal structure designed in SOLIDWORKS for rigidity at low weight</span></li>
+          <li><span class="f-num">02</span><span>Forward &amp; inverse kinematics derived and validated through MATLAB trajectory simulation</span></li>
+          <li><span class="f-num">03</span><span>Coordinated multi-axis motion control across NEMA 24/23/17 stepper motors via STM32</span></li>
+          <li><span class="f-num">04</span><span>Computer-vision object detection and localization feeding real-world target coordinates into the kinematic solver</span></li>
+          <li><span class="f-num">05</span><span>PCB and wiring harness design in Altium Designer for the control electronics</span></li>
+        </ul>
+      </div>
+
+      <aside class="proj-side">
+        <div class="side-card">
+          <h4>Project Info</h4>
+          <div class="side-row"><span>Status</span><span>Completed</span></div>
+          <div class="side-row"><span>Timeline</span><span>Feb 2026 – Jul 2026</span></div>
+          <div class="side-row"><span>Role</span><span>Design, Firmware &amp; Kinematics</span></div>
+          <div class="side-row"><span>Team</span><span>Individual (University Project)</span></div>
+        </div>
+        <div class="side-card">
+          <h4>Tech Stack</h4>
+          <div class="chip-row"><span>STM32</span><span>NEMA 24/23/17 Steppers</span><span>4mm Aluminium Sheet Metal</span><span>SOLIDWORKS</span><span>C/C++</span><span>Altium Designer</span><span>MATLAB</span></div>
+        </div>
+        <div class="side-card side-cta">
+          <a href="../assets/files/Deneth_Priyadarshana_CV.pdf" download class="btn btn-primary">Download CV</a>
+          <a href="../index.html#contact" class="btn btn-outline">Get in Touch</a>
+        </div>
+      </aside>
+    </div>
+
+    <div class="container proj-nav">
+      <a href="samp-gaming-server.html" class="proj-nav-link prev">
+        <span class="proj-nav-label">&larr; Previous</span>
+        <span class="proj-nav-title">SAMP Online Gaming Server</span>
+      </a>
+      <a href="micromouse-maze-solver.html" class="proj-nav-link next">
+        <span class="proj-nav-label">Next &rarr;</span>
+        <span class="proj-nav-title">Micromouse Autonomous Maze Solver</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>&copy; <span id="year"></span> Deneth Priyadarshana. Built with HTML, CSS &amp; JS.</p>
+    <a href="../index.html#home" class="back-top">Back to top &uarr;</a>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
