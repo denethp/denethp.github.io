@@ -56,10 +56,10 @@ projects = [
     team="Collaborative build",
     lede="A 6-DOF robotic arm built entirely from scratch: mechanics, firmware, kinematics, and a live digital twin, all driven from a single command.",
     overview=[
-      "A fully custom 6-axis robotic arm, not a kit — every layer was designed, debugged and integrated in-house. A SolidWorks CAD assembly feeds a Simscape Multibody digital twin, which shares its rigid-body model with a MATLAB inverse-kinematics solver; solved trajectories stream over USB CDC to an STM32H743 running at 420MHz, which drives six stepper axes and a gripper while reading back position from six AS5047P absolute encoders. The headline feature: a single command moves the physical arm and its 3D digital twin simultaneously, in sync, in real time.",
-      "Motor selection followed one rule — torque scales with how much arm you're carrying. The base and shoulder/elbow joints (which lift the entire outboard arm) run on NEMA 24 and NEMA 23 steppers through closed-loop CL57T drivers, so a missed step gets detected and corrected before it becomes a dropped arm. The wrist joints only have to position the end-effector, so they run smaller NEMA 17s on onboard TMC2209 drivers instead. All six axes are computed independently inside a single 2kHz timer interrupt running a trapezoidal accelerate–cruise–decelerate profile.",
-      "The kinematic model is the same rigidBodyTree on both sides of the USB link: MATLAB's inverseKinematics solver turns a target position and orientation into six joint angles, which are blended into a quintic (5th-order) trajectory for zero velocity and acceleration at both ends of every move — so the arm starts and stops smoothly instead of jerking. Along the way this project proved out a real kinematics constraint: a 6-DOF arm cannot hold both tip position and tool orientation fixed while it reconfigures — that needs a 7th degree of freedom — so every demo deliberately locks one and sweeps the other.",
-      "The hardest bug wasn't mechanical — it was a phantom one. Encoder readings on a stationary joint appeared to swing 60–70° between samples, and slowing the SPI clock down made it worse, which ruled out a signal-integrity problem. The actual cause was a −1 error sentinel from a failed read being silently averaged in with valid samples; filtering it out before averaging brought repeatability to ±0.01°. A separate Web Serial control panel now lets anyone drive the arm from Chrome or Edge alone — recorded sequences, per-joint sliders and a live command log — with no MATLAB license required to operate it, even though MATLAB remains the authoring environment for kinematics and trajectory design.",
+      "A fully custom 6-axis robotic arm, not a kit. Every layer was designed, debugged and integrated in-house. A SolidWorks CAD assembly feeds a Simscape Multibody digital twin, which shares its rigid-body model with a MATLAB inverse-kinematics solver; solved trajectories stream over USB CDC to an STM32H743 running at 420MHz, which drives six stepper axes and a gripper while reading back position from six AS5047P absolute encoders. The headline feature: a single command moves the physical arm and its 3D digital twin simultaneously, in sync, in real time.",
+      "Motor selection followed one rule: torque scales with how much arm you're carrying. The base and shoulder/elbow joints (which lift the entire outboard arm) run on NEMA 24 and NEMA 23 steppers through closed-loop CL57T drivers, so a missed step gets detected and corrected before it becomes a dropped arm. The wrist joints only have to position the end-effector, so they run smaller NEMA 17s on onboard TMC2209 drivers instead. All six axes are computed independently inside a single 2kHz timer interrupt running a trapezoidal accelerate–cruise–decelerate profile.",
+      "The kinematic model is the same rigidBodyTree on both sides of the USB link: MATLAB's inverseKinematics solver turns a target position and orientation into six joint angles, which are blended into a quintic (5th-order) trajectory for zero velocity and acceleration at both ends of every move, so the arm starts and stops smoothly instead of jerking. Along the way this project proved out a real kinematics constraint: a 6-DOF arm cannot hold both tip position and tool orientation fixed while it reconfigures (that needs a 7th degree of freedom), so every demo deliberately locks one and sweeps the other.",
+      "The hardest bug wasn't mechanical; it was a phantom one. Encoder readings on a stationary joint appeared to swing 60–70° between samples, and slowing the SPI clock down made it worse, which ruled out a signal-integrity problem. The actual cause was a −1 error sentinel from a failed read being silently averaged in with valid samples; filtering it out before averaging brought repeatability to ±0.01°. A separate Web Serial control panel now lets anyone drive the arm from Chrome or Edge alone, offering recorded sequences, per-joint sliders and a live command log, with no MATLAB license required to operate it, even though MATLAB remains the authoring environment for kinematics and trajectory design.",
     ],
     features=[
       "Tiered stepper drivetrain (NEMA 24/23/17) matched to torque and stall risk per joint, with closed-loop CL57T drivers on the two lifting joints",
@@ -99,13 +99,13 @@ projects = [
     status="Ongoing",
     accent=True,
     dates="Jun 2025 – Present",
-    role="End-to-End Design: CAD, Hardware, Electronic & PCB Design, 3D-Printed Parts, Soldering, Firmware & Control Systems / Trajectory Planning",
+    role="End-to-End Design: 3D CAD Design, Hardware, Electronic & PCB Design, Soldering, Firmware & Control Systems, and Trajectory Planning",
     team="Collaborative build",
-    lede="A micromouse built to explore, map and solve a 16×16 maze at speed — competing nationally.",
+    lede="A micromouse built to explore, map and solve a 16×16 maze at speed, competing nationally.",
     overview=[
-      "Micromouse competitions reward the intersection of speed and certainty: a robot has to map an unknown 16×16 maze in real time, then commit to the fastest verified route through it. This project tackles both halves of that problem — exploration and optimal-path execution — on a custom STM32-based mouse.",
+      "Micromouse competitions reward the intersection of speed and certainty: a robot has to map an unknown 16×16 maze in real time, then commit to the fastest verified route through it. This project tackles both halves of that problem, exploration and optimal-path execution, on a custom STM32-based mouse.",
       "Real-time maze mapping runs alongside a flood-fill algorithm that recomputes the shortest known path to the goal as new walls are discovered. Once the maze is sufficiently mapped, the mouse switches to a speed run using motion-profiled trajectories.",
-      "Getting the mouse to actually hit those trajectories required PID control tuned with both feedback and feedforward terms, with the control loop parameters first modeled and validated in MATLAB before being deployed to hardware — critical for a robot where a few degrees of heading error compounds fast in a tight maze."
+      "Getting the mouse to actually hit those trajectories required PID control tuned with both feedback and feedforward terms, with the control loop parameters first modeled and validated in MATLAB before being deployed to hardware. This was critical for a robot where a few degrees of heading error compounds fast in a tight maze."
     ],
     features=[
       "Real-time maze mapping during exploration runs, updated wall-by-wall as the mouse moves",
@@ -140,7 +140,7 @@ projects = [
         tagline="First STM32 build",
         meta="STM32G431CBU6 · Custom PCB",
         role="Hardware Design, Electronic Design, PCB Design, Soldering, Firmware & Control Systems / Trajectory Planning",
-        blurb="The first STM32-based mouse, moving off the Teensy platform onto an STM32G431CBU6 microcontroller for tighter real-time control and a cleaner custom PCB design — the direct predecessor to the current Blaze v2.",
+        blurb="The first STM32-based mouse, moving off the Teensy platform onto an STM32G431CBU6 microcontroller for tighter real-time control and a cleaner custom PCB design. It's the direct predecessor to the current Blaze v2.",
         images=[
           ("blaze-v1/blaze-v1.jpg", "Blaze v1"),
           ("blaze-v1/blaze-v1-circuit-front.jpg", "Blaze v1 control board — front"),
@@ -215,8 +215,8 @@ projects = [
     lede="A ROS 2 mobile robot that follows a line using nothing but a camera and a modular perception-to-control pipeline.",
     overview=[
       "This is a personal project to build a proper ROS 2 stack from scratch rather than relying on simple analog line sensors. A Raspberry Pi 4 runs the core ROS 2 graph, receiving frames from a camera and processing them through an OpenCV-based image pipeline to detect the line's position and curvature in real time.",
-      "Rather than one monolithic control script, the system is split into modular ROS 2 nodes — one for image processing and line detection, one for decision-making (translating detected line geometry into a target heading), and one for motion control that converts that heading into differential drive commands for the N20 motors, coordinated through an ESP32.",
-      "The modular node structure means each part of the pipeline — perception, decision, and control — can be tuned, tested or swapped independently, which has made it much easier to debug failure modes (e.g. lighting changes) in isolation."
+      "Rather than one monolithic control script, the system is split into modular ROS 2 nodes: one for image processing and line detection, one for decision-making (translating detected line geometry into a target heading), and one for motion control that converts that heading into differential drive commands for the N20 motors, coordinated through an ESP32.",
+      "The modular node structure means each part of the pipeline (perception, decision, and control) can be tuned, tested or swapped independently, which has made it much easier to debug failure modes (e.g. lighting changes) in isolation."
     ],
     features=[
       "Camera-based real-time line detection and curvature estimation using OpenCV",
@@ -238,9 +238,9 @@ projects = [
     dates="Jan 2026 – Mar 2026",
     role="Firmware (Distributed Control), Control Systems, Vision, Navigation & Networked Control",
     team="Collaborative build",
-    lede="A physical robot that discovers a maze and remotely commands a simulated 'slave' robot through 14 waypoints — built for the Sri Lankan Robotics Challenge 2026.",
+    lede="A physical robot that discovers a maze and remotely commands a simulated 'slave' robot through 14 waypoints, built for the Sri Lankan Robotics Challenge 2026.",
     overview=[
-      "SLRC 2026's University Category set an unusual challenge: a real-world robot has to explore and decode a maze, then use what it learns to control a separate, networked simulated robot in real time — all while a dynamically patrolling hostile agent tries to intercept it.",
+      "SLRC 2026's University Category set an unusual challenge: a real-world robot has to explore and decode a maze, then use what it learns to control a separate, networked simulated robot in real time, all while a dynamically patrolling hostile agent tries to intercept it.",
       "Our physical robot used AprilTag-based navigation to localize itself and decode a sequence of multi-key coordinates hidden throughout the maze. It also performed physical object pick-and-place using a custom-built slider mechanism as part of the task sequence.",
       "The decoded waypoint sequence was then transmitted over a REST API to control a networked simulated 'slave' robot through 14 sequenced waypoints, with logic built in to dynamically avoid a hostile agent patrolling the simulated environment. The entry was selected among the Top 8 nationally."
     ],
@@ -275,10 +275,10 @@ projects = [
     dates="Feb 2025 – Jul 2025",
     role="Firmware (Distributed Control), Control Systems, Navigation & Networked Control",
     team="Collaborative build",
-    lede="EN2533's entry — a single autonomous robot engineered to clear grid navigation, line tracking, ramp ascent, wall following and target shooting in one uninterrupted run.",
+    lede="EN2533's entry: a single autonomous robot engineered to clear grid navigation, line tracking, ramp ascent, wall following and target shooting in one uninterrupted run.",
     overview=[
       "Built for the EN2533 Robot Design and Competition module, this robot had to autonomously complete a sequence of very different physical challenges without any operator intervention: navigating a structured grid by detecting intersections and reasoning about direction, tracking a broken/dotted line under closed-loop PID correction, climbing and descending an inclined ramp under active velocity control, following the curvature of a circular wall using an IR sensor array, and finally aligning to a target and firing a motor-driven projectile launcher.",
-      "The firmware is organized as a modular, task-based Arduino codebase rather than one monolithic sketch — each behavior (grid mapping, dotted-line PID, ramp climbing, wall following, shooting) lives in its own file, with a central main control loop handling task switching, mode management and execution sequencing so the robot can hand off cleanly from one challenge to the next.",
+      "The firmware is organized as a modular, task-based Arduino codebase rather than one monolithic sketch: each behavior (grid mapping, dotted-line PID, ramp climbing, wall following, shooting) lives in its own file, with a central main control loop handling task switching, mode management and execution sequencing so the robot can hand off cleanly from one challenge to the next.",
       "Underneath every task sits the same differential-drive foundation: shared translational and rotational motion primitives, a common low-level motor instruction layer, and sensor filtering utilities that feed the IR array readings into whichever task is currently active. Ramp ascent in particular relies on active motor power compensation to hold a stable climb rate as the incline changes the load on the drivetrain.",
     ],
     features=[
@@ -311,11 +311,11 @@ projects = [
     dates="Aug 2025 – Dec 2025",
     role="Electronic Design, 1kHz PWM Generation, and Analog-Level Control Systems Design",
     team="Collaborative build",
-    lede="A microcontroller-free autonomous line follower for EN2091 — sensing, PD control, PWM generation and motor driving all done in continuous-time analog hardware, with no firmware anywhere in the loop.",
+    lede="A microcontroller-free autonomous line follower for EN2091: sensing, PD control, PWM generation and motor driving all done in continuous-time analog hardware, with no firmware anywhere in the loop.",
     overview=[
-      "Most line followers process an IR sensor array in software. This one doesn't — there's no microcontroller, no programmable logic, and no code anywhere on the robot. An 8-channel TCRT5000 infrared array feeds resistor-weighted summing amplifiers built from LM324 op-amps, which continuously compute a single error voltage representing the line's position, direction of deviation and magnitude, entirely in continuous time.",
-      "That error voltage drives a hardware Proportional-Derivative controller — adjustable Kp and Kd set by trimpots rather than software constants — which reacts immediately with no ADC conversion, no sampling delay, and no loop-execution time. PWM for the motors is generated the same way: a Schmitt-trigger oscillator and analog integrator produce a stable triangular carrier, which a comparator mixes against the PD output to produce continuously variable, adjustable-frequency PWM. An L293D H-bridge then drives the two DC gear motors with independent left/right differential steering.",
-      "My focus was the drive side of the loop: designing the Triangular Waveform Generator and the comparator-based PWM generation circuitry, then carrying that through to motor control implementation, hardware assembly/soldering and end-to-end system debugging. The full analog signal path — sensing, PD control, and PWM/motor drive — was laid out on a custom 4-layer PCB to keep the ground plane clean and EMI low, since a noisy analog front end is far more forgiving in software than it is when the 'processor' is a breadboard of op-amps.",
+      "Most line followers process an IR sensor array in software. This one doesn't: there's no microcontroller, no programmable logic, and no code anywhere on the robot. An 8-channel TCRT5000 infrared array feeds resistor-weighted summing amplifiers built from LM324 op-amps, which continuously compute a single error voltage representing the line's position, direction of deviation and magnitude, entirely in continuous time.",
+      "That error voltage drives a hardware Proportional-Derivative controller (adjustable Kp and Kd set by trimpots rather than software constants) which reacts immediately with no ADC conversion, no sampling delay, and no loop-execution time. PWM for the motors is generated the same way: a Schmitt-trigger oscillator and analog integrator produce a stable triangular carrier, which a comparator mixes against the PD output to produce continuously variable, adjustable-frequency PWM. An L293D H-bridge then drives the two DC gear motors with independent left/right differential steering.",
+      "My focus was the drive side of the loop: designing the Triangular Waveform Generator and the comparator-based PWM generation circuitry, then carrying that through to motor control implementation, hardware assembly/soldering and end-to-end system debugging. The full analog signal path (sensing, PD control, and PWM/motor drive) was laid out on a custom 4-layer PCB to keep the ground plane clean and EMI low, since a noisy analog front end is far more forgiving in software than it is when the 'processor' is a breadboard of op-amps.",
     ],
     features=[
       "Fully analog control loop — zero microcontrollers, zero firmware, zero digital logic",
@@ -348,11 +348,11 @@ projects = [
     dates="Feb 2026 – Jul 2026",
     role="Electronic Design, 1kHz PWM Generation, and Analog-Level Control Systems Design",
     team="Collaborative build",
-    lede="A closed-loop DC motor speed controller for EN2160 with no microcontroller anywhere in the loop — encoder feedback, PID and PWM generation done entirely with op-amps and discrete power electronics.",
+    lede="A closed-loop DC motor speed controller for EN2160 with no microcontroller anywhere in the loop: encoder feedback, PID and PWM generation done entirely with op-amps and discrete power electronics.",
     overview=[
-      "This EN2160 project regulates DC motor speed in closed loop without a single digital component in the control path. Encoder pulses are converted to a proportional analog voltage by a custom frequency-to-voltage converter — an RC low-pass filter, peak detector and signal-conditioning stage — giving continuous real-time speed feedback with no ADC sampling anywhere in between.",
-      "That feedback voltage is compared against a reference and run through a full analog PID controller built from TL072 op-amp stages implementing proportional, integral and derivative action directly in the analog domain. The PID output drives a custom analog PWM generator — a Schmitt-trigger oscillator, integrator and comparator producing a clean triangular carrier, followed by a precision rectifier and positive clipper to shape it into a clean 0–5V PWM signal — which finally switches an IRLZ44N logic-level MOSFET (with flyback diode and gate/pull-down protection) to drive the motor.",
-      "My part of the loop was the PWM generation stage: designing the Schmitt-trigger oscillator, integrator and comparator chain, and getting the precision-rectifier output clean enough to reliably switch the MOSFET stage. Testing and tuning the whole loop entirely on hardware — with no software knob to fall back on — meant every gain, corner frequency and clipping threshold had to be nailed down through component selection and bench iteration.",
+      "This EN2160 project regulates DC motor speed in closed loop without a single digital component in the control path. Encoder pulses are converted to a proportional analog voltage by a custom frequency-to-voltage converter (an RC low-pass filter, peak detector and signal-conditioning stage), giving continuous real-time speed feedback with no ADC sampling anywhere in between.",
+      "That feedback voltage is compared against a reference and run through a full analog PID controller built from TL072 op-amp stages implementing proportional, integral and derivative action directly in the analog domain. The PID output drives a custom analog PWM generator (a Schmitt-trigger oscillator, integrator and comparator producing a clean triangular carrier, followed by a precision rectifier and positive clipper to shape it into a clean 0–5V PWM signal), which finally switches an IRLZ44N logic-level MOSFET (with flyback diode and gate/pull-down protection) to drive the motor.",
+      "My part of the loop was the PWM generation stage: designing the Schmitt-trigger oscillator, integrator and comparator chain, and getting the precision-rectifier output clean enough to reliably switch the MOSFET stage. Testing and tuning the whole loop entirely on hardware, with no software knob to fall back on, meant every gain, corner frequency and clipping threshold had to be nailed down through component selection and bench iteration.",
     ],
     features=[
       "Fully analog closed-loop speed control — no microcontroller, DSP or FPGA anywhere in the loop",
@@ -382,11 +382,11 @@ projects = [
     dates="Feb 2025 – Jul 2025",
     role="Firmware Development & Full-Stack Development of the App",
     team="Collaborative build",
-    lede="An IoT-enabled smart water flow meter for EN1190 — live flow monitoring, historical analytics and threshold alerts on a cross-platform mobile app, built around an affordable, locally manufacturable design.",
+    lede="An IoT-enabled smart water flow meter for EN1190: live flow monitoring, historical analytics and threshold alerts on a cross-platform mobile app, built around an affordable, locally manufacturable design.",
     overview=[
-      "Built for the EN1190 Engineering Design Project, this project turns a basic paddle-wheel flow sensor into a fully connected IoT device. An ESP8266 reads flow rate and water temperature, drives a local OLED display for standalone operation, and streams live readings over Wi-Fi — with the whole board running off a rechargeable Li-ion cell through a TP4056 charging circuit and a custom PCB in a 3D-printed enclosure.",
+      "Built for the EN1190 Engineering Design Project, this project turns a basic paddle-wheel flow sensor into a fully connected IoT device. An ESP8266 reads flow rate and water temperature, drives a local OLED display for standalone operation, and streams live readings over Wi-Fi, with the whole board running off a rechargeable Li-ion cell through a TP4056 charging circuit and a custom PCB in a 3D-printed enclosure.",
       "On the software side, a React Native mobile app connects to the device in real time over WebSockets, backed by a Node.js server and SQLite database that store historical consumption data and enforce JWT-based authentication. Beyond live flow rate and temperature, the app surfaces total consumption, historical trends, multi-device management and configurable overflow/underflow alerts.",
-      "I owned both ends of this stack — the ESP8266 firmware reading and conditioning the flow-sensor and temperature signals and pushing them out over Wi-Fi, and the React Native app (Android and iOS) that consumes that stream, renders it live, and handles authentication and historical analytics. Getting both sides talking reliably over WebSockets, with the app staying responsive and the firmware staying real-time, was the core engineering problem.",
+      "I owned both ends of this stack: the ESP8266 firmware reading and conditioning the flow-sensor and temperature signals and pushing them out over Wi-Fi, and the React Native app (Android and iOS) that consumes that stream, renders it live, and handles authentication and historical analytics. Getting both sides talking reliably over WebSockets, with the app staying responsive and the firmware staying real-time, was the core engineering problem.",
     ],
     features=[
       "Real-time flow rate and water temperature monitoring via a paddle-wheel sensor and ESP8266",
@@ -434,7 +434,7 @@ projects = [
     lede="A social networking platform for university students and lecturers to share ideas, collaborate and communicate.",
     overview=[
       "UniLink was built to give university communities a dedicated space to share ideas and collaborate, separate from general-purpose social platforms. Students and lecturers can post, discuss and connect around academic and campus life.",
-      "The backend runs on Express.js with a MySQL data store, while real-time features — notifications, live discussion updates — are handled over WebSockets. Authentication uses JWT to keep sessions stateless and scalable.",
+      "The backend runs on Express.js with a MySQL data store, while real-time features (notifications, live discussion updates) are handled over WebSockets. Authentication uses JWT to keep sessions stateless and scalable.",
       "This was one of my earliest full-stack projects, and it's where I first worked through the real-world tradeoffs of session management, real-time updates, and relational schema design at a 'real users' scale rather than a toy example."
     ],
     features=[
@@ -457,6 +457,7 @@ projects = [
   ),
   dict(
     slug="samp-gaming-server",
+    github="https://github.com/denethp/lggw-samp-server",
     title="SAMP Online Gaming Server",
     tag="Personal Project",
     status="Completed",
@@ -464,11 +465,11 @@ projects = [
     dates="2017 – 2019",
     role="Server Development & Scripting",
     team="Individual (Personal Project)",
-    lede="A persistent multiplayer server for GTA: San Andreas, with custom gameplay mechanics and admin tooling — built and maintained solo through school.",
+    lede="A persistent multiplayer server for GTA: San Andreas, with custom gameplay mechanics and admin tooling, built and maintained solo through school.",
     overview=[
       "Long before university, this was the project that got me into programming seriously: an online multiplayer server for Grand Theft Auto: San Andreas built on the SA-MP (San Andreas Multiplayer) platform.",
       "Everything from custom gameplay mechanics to player management systems and administration tools was written in Pawn, SA-MP's scripting language, and run as a persistent, always-on server that real players connected to over several years.",
-      "Maintaining a live multiplayer server — with real players, real bugs reported in real time, and real moderation problems — was an early, practical lesson in building and operating software that has to keep running, not just run once."
+      "Maintaining a live multiplayer server, with real players, real bugs reported in real time, and real moderation problems, was an early, practical lesson in building and operating software that has to keep running, not just run once."
     ],
     features=[
       "Custom gameplay mechanics and game modes scripted in Pawn",
@@ -501,9 +502,9 @@ projects = [
     team="AIESEC, SLIIT",
     lede="The official registration and event site for IntelliCon 2.0, a coding competition organized by AIESEC at SLIIT, Sri Lanka.",
     overview=[
-      "IntelliCon 2.0 needed a full event website — schedule, a CodeRun competition section, an FAQ, and a working registration flow — built and shipped ahead of the competition date. The front end runs an animated particle-network hero and scroll-triggered reveal animations across a Node.js/Express backend with Handlebars templating.",
+      "IntelliCon 2.0 needed a full event website (schedule, a CodeRun competition section, an FAQ, and a working registration flow) built and shipped ahead of the competition date. The front end runs an animated particle-network hero and scroll-triggered reveal animations across a Node.js/Express backend with Handlebars templating.",
       "Registration itself is a full account system rather than a static form: JWT-based authentication backs both a public registration flow and a separate admin login for managing entrants, with an SQLite database storing registration and event data behind it.",
-      "Working to a hard external deadline for an organizer outside the university was good practice in scoping a small web project tightly — client, server and database all had to be functional and polished by a fixed competition date rather than an open-ended one."
+      "Working to a hard external deadline for an organizer outside the university was good practice in scoping a small web project tightly: client, server and database all had to be functional and polished by a fixed competition date rather than an open-ended one."
     ],
     features=[
       "Animated particle-network hero and scroll-triggered section reveals",
@@ -772,7 +773,7 @@ for i, p in enumerate(projects):
         )
         generations_block = f'''<div class="container family-section">
       <h2>Older Micromice</h2>
-      <p class="gen-intro">Blaze v2 (above) is the current mouse. Before it came four earlier builds — full write-ups for all of them live in the
+      <p class="gen-intro">Blaze v2 (above) is the current mouse. Before it came four earlier builds. Full write-ups for all of them live in the
         <a href="https://github.com/denethp/micromouse-showcase" target="_blank" rel="noopener">micromouse-showcase</a> repo.</p>
       <div class="mouse-card-grid">
         {cards_html}
@@ -854,7 +855,7 @@ MOUSE_TEMPLATE = """<!DOCTYPE html>
       </div>
     </div>
     <h1 class="proj-title">{label}</h1>
-    <p class="proj-lede">{tagline} — an earlier generation of the <a href="../{project_slug}.html">{project_title}</a>.</p>
+    <p class="proj-lede">{tagline}, an earlier generation of the <a href="../{project_slug}.html">{project_title}</a>.</p>
 
     {media_block}
   </section>

@@ -373,6 +373,15 @@ ul{ margin:0; padding:0; list-style:none; }
   padding:4px 10px; border-radius:999px; background: var(--surface-2); color: var(--text-dim);
 }
 .project-status.status-active{ color: var(--accent); background: var(--accent-soft); }
+/* On a has-media card, the date sits directly over a photo with nothing
+   behind it — fine on a dark image, but it washes out completely against a
+   lighter one (metal, sky, a pale background). Give it the same dark,
+   blurred pill the status badge next to it already gets, so it stays
+   legible regardless of what's in the photo underneath. */
+.project-card.has-media .project-tag{
+  background: rgba(10,14,20,.55); backdrop-filter: blur(6px); border:1px solid var(--border);
+  padding:4px 10px; border-radius:999px; color: var(--text-dim);
+}
 .project-card.has-media .project-status{ background: rgba(10,14,20,.55); backdrop-filter: blur(6px); border:1px solid var(--border); }
 .project-card.has-media .project-status.status-active{ background: rgba(0,229,199,.18); }
 .project-card h3{ font-size:1.12rem; line-height:1.35; }
@@ -382,6 +391,21 @@ ul{ margin:0; padding:0; list-style:none; }
   font-family: var(--font-mono); font-size:.68rem; padding:4px 9px; border-radius:6px;
   background: var(--surface-2); color: var(--text-dim); border:1px solid var(--border);
 }
+
+/* A card full of description text reads as something to read, not something
+   to click — this row is the missing "click here" cue: present at rest (not
+   only revealed on hover), so the card's interactivity is obvious at a
+   glance, with the arrow nudging forward and brightening on hover as
+   confirmation rather than as the only signal. */
+.project-cta{
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  margin-top:2px; padding-top:14px; border-top:1px solid var(--border);
+  font-size:.82rem; font-weight:600; color: var(--text-dim);
+  transition: color .25s var(--ease), border-color .25s var(--ease);
+}
+.project-cta svg{ color: var(--text-faint); transition: transform .25s var(--ease), color .25s var(--ease); }
+.project-card:hover .project-cta{ color: var(--accent); border-color: rgba(0,229,199,.3); }
+.project-card:hover .project-cta svg{ transform: translateX(4px); color: var(--accent); }
 
 /* Skills */
 .skills-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:18px; }

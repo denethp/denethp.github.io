@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Autonomous Multi-Challenge Competition Robot — Deneth Priyadarshana</title>
-<meta name="description" content="EN2533&#x27;s entry — a single autonomous robot engineered to clear grid navigation, line tracking, ramp ascent, wall following and target shooting in one uninterrupted run.">
+<meta name="description" content="EN2533&#x27;s entry: a single autonomous robot engineered to clear grid navigation, line tracking, ramp ascent, wall following and target shooting in one uninterrupted run.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300e5c7%22>&#9670;</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +41,7 @@
       </a>
     </div>
     <h1 class="proj-title">Autonomous Multi-Challenge Competition Robot</h1>
-    <p class="proj-lede">EN2533&#x27;s entry — a single autonomous robot engineered to clear grid navigation, line tracking, ramp ascent, wall following and target shooting in one uninterrupted run.</p>
+    <p class="proj-lede">EN2533&#x27;s entry: a single autonomous robot engineered to clear grid navigation, line tracking, ramp ascent, wall following and target shooting in one uninterrupted run.</p>
 
     <div class="proj-media proj-gallery">
       <img id="galleryMain" src="../assets/img/projects/multi-challenge-competition-robot/robot-front.jpg" alt="The completed competition robot">
@@ -61,7 +61,7 @@
       <div class="proj-main">
         <h2>Overview</h2>
         <p>Built for the EN2533 Robot Design and Competition module, this robot had to autonomously complete a sequence of very different physical challenges without any operator intervention: navigating a structured grid by detecting intersections and reasoning about direction, tracking a broken/dotted line under closed-loop PID correction, climbing and descending an inclined ramp under active velocity control, following the curvature of a circular wall using an IR sensor array, and finally aligning to a target and firing a motor-driven projectile launcher.</p>
-        <p>The firmware is organized as a modular, task-based Arduino codebase rather than one monolithic sketch — each behavior (grid mapping, dotted-line PID, ramp climbing, wall following, shooting) lives in its own file, with a central main control loop handling task switching, mode management and execution sequencing so the robot can hand off cleanly from one challenge to the next.</p>
+        <p>The firmware is organized as a modular, task-based Arduino codebase rather than one monolithic sketch: each behavior (grid mapping, dotted-line PID, ramp climbing, wall following, shooting) lives in its own file, with a central main control loop handling task switching, mode management and execution sequencing so the robot can hand off cleanly from one challenge to the next.</p>
         <p>Underneath every task sits the same differential-drive foundation: shared translational and rotational motion primitives, a common low-level motor instruction layer, and sensor filtering utilities that feed the IR array readings into whichever task is currently active. Ramp ascent in particular relies on active motor power compensation to hold a stable climb rate as the incline changes the load on the drivetrain.</p>
 
         <h2>Key Features</h2>

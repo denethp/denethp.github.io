@@ -53,8 +53,8 @@
       <div class="proj-main">
         <h2>Overview</h2>
         <p>This is a personal project to build a proper ROS 2 stack from scratch rather than relying on simple analog line sensors. A Raspberry Pi 4 runs the core ROS 2 graph, receiving frames from a camera and processing them through an OpenCV-based image pipeline to detect the line&#x27;s position and curvature in real time.</p>
-        <p>Rather than one monolithic control script, the system is split into modular ROS 2 nodes — one for image processing and line detection, one for decision-making (translating detected line geometry into a target heading), and one for motion control that converts that heading into differential drive commands for the N20 motors, coordinated through an ESP32.</p>
-        <p>The modular node structure means each part of the pipeline — perception, decision, and control — can be tuned, tested or swapped independently, which has made it much easier to debug failure modes (e.g. lighting changes) in isolation.</p>
+        <p>Rather than one monolithic control script, the system is split into modular ROS 2 nodes: one for image processing and line detection, one for decision-making (translating detected line geometry into a target heading), and one for motion control that converts that heading into differential drive commands for the N20 motors, coordinated through an ESP32.</p>
+        <p>The modular node structure means each part of the pipeline (perception, decision, and control) can be tuned, tested or swapped independently, which has made it much easier to debug failure modes (e.g. lighting changes) in isolation.</p>
 
         <h2>Key Features</h2>
         <ul class="feature-list">

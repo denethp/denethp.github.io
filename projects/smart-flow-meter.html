@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Smart Contact-based Flow Meter — Deneth Priyadarshana</title>
-<meta name="description" content="An IoT-enabled smart water flow meter for EN1190 — live flow monitoring, historical analytics and threshold alerts on a cross-platform mobile app, built around an affordable, locally manufacturable design.">
+<meta name="description" content="An IoT-enabled smart water flow meter for EN1190: live flow monitoring, historical analytics and threshold alerts on a cross-platform mobile app, built around an affordable, locally manufacturable design.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300e5c7%22>&#9670;</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +41,7 @@
       </a>
     </div>
     <h1 class="proj-title">Smart Contact-based Flow Meter</h1>
-    <p class="proj-lede">An IoT-enabled smart water flow meter for EN1190 — live flow monitoring, historical analytics and threshold alerts on a cross-platform mobile app, built around an affordable, locally manufacturable design.</p>
+    <p class="proj-lede">An IoT-enabled smart water flow meter for EN1190: live flow monitoring, historical analytics and threshold alerts on a cross-platform mobile app, built around an affordable, locally manufacturable design.</p>
 
     <div class="proj-media proj-gallery">
       <img id="galleryMain" src="../assets/img/projects/smart-flow-meter/smart-flow-meter-final.jpg" alt="The completed smart flow meter">
@@ -105,9 +105,9 @@
     <div class="container proj-body">
       <div class="proj-main">
         <h2>Overview</h2>
-        <p>Built for the EN1190 Engineering Design Project, this project turns a basic paddle-wheel flow sensor into a fully connected IoT device. An ESP8266 reads flow rate and water temperature, drives a local OLED display for standalone operation, and streams live readings over Wi-Fi — with the whole board running off a rechargeable Li-ion cell through a TP4056 charging circuit and a custom PCB in a 3D-printed enclosure.</p>
+        <p>Built for the EN1190 Engineering Design Project, this project turns a basic paddle-wheel flow sensor into a fully connected IoT device. An ESP8266 reads flow rate and water temperature, drives a local OLED display for standalone operation, and streams live readings over Wi-Fi, with the whole board running off a rechargeable Li-ion cell through a TP4056 charging circuit and a custom PCB in a 3D-printed enclosure.</p>
         <p>On the software side, a React Native mobile app connects to the device in real time over WebSockets, backed by a Node.js server and SQLite database that store historical consumption data and enforce JWT-based authentication. Beyond live flow rate and temperature, the app surfaces total consumption, historical trends, multi-device management and configurable overflow/underflow alerts.</p>
-        <p>I owned both ends of this stack — the ESP8266 firmware reading and conditioning the flow-sensor and temperature signals and pushing them out over Wi-Fi, and the React Native app (Android and iOS) that consumes that stream, renders it live, and handles authentication and historical analytics. Getting both sides talking reliably over WebSockets, with the app staying responsive and the firmware staying real-time, was the core engineering problem.</p>
+        <p>I owned both ends of this stack: the ESP8266 firmware reading and conditioning the flow-sensor and temperature signals and pushing them out over Wi-Fi, and the React Native app (Android and iOS) that consumes that stream, renders it live, and handles authentication and historical analytics. Getting both sides talking reliably over WebSockets, with the app staying responsive and the firmware staying real-time, was the core engineering problem.</p>
 
         <h2>Key Features</h2>
         <ul class="feature-list">

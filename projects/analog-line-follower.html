@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Fully Analog Line Follower — Deneth Priyadarshana</title>
-<meta name="description" content="A microcontroller-free autonomous line follower for EN2091 — sensing, PD control, PWM generation and motor driving all done in continuous-time analog hardware, with no firmware anywhere in the loop.">
+<meta name="description" content="A microcontroller-free autonomous line follower for EN2091: sensing, PD control, PWM generation and motor driving all done in continuous-time analog hardware, with no firmware anywhere in the loop.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300e5c7%22>&#9670;</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +41,7 @@
       </a>
     </div>
     <h1 class="proj-title">Fully Analog Line Follower</h1>
-    <p class="proj-lede">A microcontroller-free autonomous line follower for EN2091 — sensing, PD control, PWM generation and motor driving all done in continuous-time analog hardware, with no firmware anywhere in the loop.</p>
+    <p class="proj-lede">A microcontroller-free autonomous line follower for EN2091: sensing, PD control, PWM generation and motor driving all done in continuous-time analog hardware, with no firmware anywhere in the loop.</p>
 
     <div class="proj-media proj-gallery">
       <img id="galleryMain" src="../assets/img/projects/analog-line-follower/analog-line-follower-1.jpg" alt="The completed analog line follower">
@@ -69,9 +69,9 @@
     <div class="container proj-body">
       <div class="proj-main">
         <h2>Overview</h2>
-        <p>Most line followers process an IR sensor array in software. This one doesn&#x27;t — there&#x27;s no microcontroller, no programmable logic, and no code anywhere on the robot. An 8-channel TCRT5000 infrared array feeds resistor-weighted summing amplifiers built from LM324 op-amps, which continuously compute a single error voltage representing the line&#x27;s position, direction of deviation and magnitude, entirely in continuous time.</p>
-        <p>That error voltage drives a hardware Proportional-Derivative controller — adjustable Kp and Kd set by trimpots rather than software constants — which reacts immediately with no ADC conversion, no sampling delay, and no loop-execution time. PWM for the motors is generated the same way: a Schmitt-trigger oscillator and analog integrator produce a stable triangular carrier, which a comparator mixes against the PD output to produce continuously variable, adjustable-frequency PWM. An L293D H-bridge then drives the two DC gear motors with independent left/right differential steering.</p>
-        <p>My focus was the drive side of the loop: designing the Triangular Waveform Generator and the comparator-based PWM generation circuitry, then carrying that through to motor control implementation, hardware assembly/soldering and end-to-end system debugging. The full analog signal path — sensing, PD control, and PWM/motor drive — was laid out on a custom 4-layer PCB to keep the ground plane clean and EMI low, since a noisy analog front end is far more forgiving in software than it is when the &#x27;processor&#x27; is a breadboard of op-amps.</p>
+        <p>Most line followers process an IR sensor array in software. This one doesn&#x27;t: there&#x27;s no microcontroller, no programmable logic, and no code anywhere on the robot. An 8-channel TCRT5000 infrared array feeds resistor-weighted summing amplifiers built from LM324 op-amps, which continuously compute a single error voltage representing the line&#x27;s position, direction of deviation and magnitude, entirely in continuous time.</p>
+        <p>That error voltage drives a hardware Proportional-Derivative controller (adjustable Kp and Kd set by trimpots rather than software constants) which reacts immediately with no ADC conversion, no sampling delay, and no loop-execution time. PWM for the motors is generated the same way: a Schmitt-trigger oscillator and analog integrator produce a stable triangular carrier, which a comparator mixes against the PD output to produce continuously variable, adjustable-frequency PWM. An L293D H-bridge then drives the two DC gear motors with independent left/right differential steering.</p>
+        <p>My focus was the drive side of the loop: designing the Triangular Waveform Generator and the comparator-based PWM generation circuitry, then carrying that through to motor control implementation, hardware assembly/soldering and end-to-end system debugging. The full analog signal path (sensing, PD control, and PWM/motor drive) was laid out on a custom 4-layer PCB to keep the ground plane clean and EMI low, since a noisy analog front end is far more forgiving in software than it is when the &#x27;processor&#x27; is a breadboard of op-amps.</p>
 
         <h2>Key Features</h2>
         <ul class="feature-list">
