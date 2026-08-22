@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Fully Analog DC Motor Speed Controller — Deneth Priyadarshana</title>
-<meta name="description" content="A closed-loop DC motor speed controller built entirely from analog components, using magnetic encoder feedback.">
+<meta name="description" content="A closed-loop DC motor speed controller for EN2160 with no microcontroller anywhere in the loop — encoder feedback, PID and PWM generation done entirely with op-amps and discrete power electronics.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300e5c7%22>&#9670;</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,36 +35,60 @@
         <span class="proj-badge">Completed</span>
         <span class="proj-badge">Feb 2026 – Jul 2026</span>
       </div>
+      <a class="btn proj-github-btn" href="https://github.com/denethp/fully-analog-dc-motor-speed-controller" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        View GitHub Repository
+      </a>
     </div>
     <h1 class="proj-title">Fully Analog DC Motor Speed Controller</h1>
-    <p class="proj-lede">A closed-loop DC motor speed controller built entirely from analog components, using magnetic encoder feedback.</p>
+    <p class="proj-lede">A closed-loop DC motor speed controller for EN2160 with no microcontroller anywhere in the loop — encoder feedback, PID and PWM generation done entirely with op-amps and discrete power electronics.</p>
 
-    <div class="proj-media">
-      <img src="../assets/img/projects/analog-motor-speed-controller.jpg" alt="Fully Analog DC Motor Speed Controller" loading="lazy"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="media-placeholder" style="display:none">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5-9 9"/></svg>
-        <span>Image coming soon</span>
-      </div>
+    <div class="proj-media proj-gallery">
+      <a class="proj-presentation is-active" id="presentationMedia" href="https://www.canva.com/design/DAHIBe1Ph3U/AgemTcLJaJtfteaBAiZ2Lg/view?utm_content=DAHIBe1Ph3U&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hecbe5c174b#1" target="_blank" rel="noopener noreferrer">
+        <div class="presentation-glow" aria-hidden="true"></div>
+        <div class="presentation-content">
+          <span class="presentation-icon">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </span>
+          <h3>Neural Nexus — Analog Project (Sem 4)</h3>
+          <span class="presentation-cta">View Presentation
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </span>
+        </div>
+      </a>
+      <img id="galleryMain" src="../assets/img/projects/analog-motor-speed-controller/analog-motor-speed-controller-1.jpg" alt="Bench testing — laptop analysis alongside the breadboard circuit" style="display:none">
     </div>
-    <p class="media-hint">Have a photo or video of this project? Send it over and I'll add it here.</p>
+    <div class="gallery-thumbs">
+        <button class="gallery-thumb presentation-thumb is-active" data-type="presentation" aria-label="View presentation">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </button>
+        <button class="gallery-thumb" data-type="photo" data-src="../assets/img/projects/analog-motor-speed-controller/analog-motor-speed-controller-1.jpg" data-alt="Bench testing — laptop analysis alongside the breadboard circuit" aria-label="View photo 1">
+          <img src="../assets/img/projects/analog-motor-speed-controller/analog-motor-speed-controller-1.jpg" alt="Bench testing — laptop analysis alongside the breadboard circuit" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-type="photo" data-src="../assets/img/projects/analog-motor-speed-controller/analog-motor-speed-controller-2.png" data-alt="The breadboard circuit — top-down view" aria-label="View photo 2">
+          <img src="../assets/img/projects/analog-motor-speed-controller/analog-motor-speed-controller-2.png" alt="The breadboard circuit — top-down view" loading="lazy">
+        </button>
+    </div>
   </section>
 
   <section class="section" style="padding-top:0; border-top:none;">
     <div class="container proj-body">
       <div class="proj-main">
         <h2>Overview</h2>
-        <p>This project implements precise closed-loop speed regulation for a DC motor without any digital control — the entire feedback loop, from encoder signal conditioning to the drive stage, is analog.</p>
-        <p>A magnetic encoder provides real-time speed feedback, which is conditioned and compared against a reference signal using op-amp based error amplification. The resulting error signal drives the motor stage, forming a continuous analog feedback loop that regulates speed against load disturbances.</p>
-        <p>Designing this without a microcontroller forced a much deeper engagement with the underlying control theory — every gain and time constant in the loop had to be set through component selection rather than a tunable software parameter.</p>
+        <p>This EN2160 project regulates DC motor speed in closed loop without a single digital component in the control path. Encoder pulses are converted to a proportional analog voltage by a custom frequency-to-voltage converter — an RC low-pass filter, peak detector and signal-conditioning stage — giving continuous real-time speed feedback with no ADC sampling anywhere in between.</p>
+        <p>That feedback voltage is compared against a reference and run through a full analog PID controller built from TL072 op-amp stages implementing proportional, integral and derivative action directly in the analog domain. The PID output drives a custom analog PWM generator — a Schmitt-trigger oscillator, integrator and comparator producing a clean triangular carrier, followed by a precision rectifier and positive clipper to shape it into a clean 0–5V PWM signal — which finally switches an IRLZ44N logic-level MOSFET (with flyback diode and gate/pull-down protection) to drive the motor.</p>
+        <p>My part of the loop was the PWM generation stage: designing the Schmitt-trigger oscillator, integrator and comparator chain, and getting the precision-rectifier output clean enough to reliably switch the MOSFET stage. Testing and tuning the whole loop entirely on hardware — with no software knob to fall back on — meant every gain, corner frequency and clipping threshold had to be nailed down through component selection and bench iteration.</p>
 
         <h2>Key Features</h2>
         <ul class="feature-list">
-          <li><span class="f-num">01</span><span>Closed-loop analog speed control using magnetic encoder feedback</span></li>
-          <li><span class="f-num">02</span><span>Op-amp based error amplification and reference comparison</span></li>
-          <li><span class="f-num">03</span><span>Fully discrete drive stage — no digital control loop</span></li>
-          <li><span class="f-num">04</span><span>Tuned for stable regulation under varying load on a 750 RPM N20 DC motor</span></li>
+          <li><span class="f-num">01</span><span>Fully analog closed-loop speed control — no microcontroller, DSP or FPGA anywhere in the loop</span></li>
+          <li><span class="f-num">02</span><span>Custom frequency-to-voltage converter turning encoder pulses into continuous analog speed feedback</span></li>
+          <li><span class="f-num">03</span><span>Analog PID controller (P + I + D) built from TL072 op-amp stages</span></li>
+          <li><span class="f-num">04</span><span>Analog PWM generator: Schmitt-trigger oscillator, integrator, comparator, precision rectifier and clipper</span></li>
+          <li><span class="f-num">05</span><span>IRLZ44N MOSFET power driver stage with flyback protection for reliable motor switching</span></li>
         </ul>
+
+        
       </div>
 
       <aside class="proj-side">
@@ -71,20 +96,21 @@
           <h4>Project Info</h4>
           <div class="side-row"><span>Status</span><span>Completed</span></div>
           <div class="side-row"><span>Timeline</span><span>Feb 2026 – Jul 2026</span></div>
-          <div class="side-row"><span>Role</span><span>Analog Circuit Design</span></div>
-          <div class="side-row"><span>Team</span><span>Individual (University Project)</span></div>
+          <div class="side-row"><span>Role</span><span>Electronic Design, 1kHz PWM Generation, and Analog-Level Control Systems Design</span></div>
         </div>
         <div class="side-card">
           <h4>Tech Stack</h4>
-          <div class="chip-row"><span>Op-Amps</span><span>Transistors</span><span>N20 DC Motor (750 RPM)</span></div>
+          <div class="chip-row"><span>TL072 Op-Amps</span><span>IRLZ44N MOSFET</span><span>Frequency-to-Voltage Converter</span><span>Analog PID</span></div>
         </div>
         <div class="side-card side-cta">
           <p class="cv-note">CV available upon request</p>
-          <a href="mailto:sadpriyadarshana@gmail.com?subject=CV%20Request" class="btn btn-primary">Request CV</a>
+          <a href="https://wa.me/94721432218?text=Hi%2C%20I%27d%20like%20to%20request%20your%20CV" target="_blank" rel="noopener" class="btn btn-primary cv-request-btn" data-contact-url="../index.html#contact">Request CV</a>
           <a href="../index.html#contact" class="btn btn-outline">Get in Touch</a>
         </div>
       </aside>
     </div>
+
+    
 
     <div class="container proj-nav">
       <a href="analog-line-follower.html" class="proj-nav-link prev">

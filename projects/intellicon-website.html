@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Website for IntelliCon &#x27;24 — Deneth Priyadarshana</title>
-<meta name="description" content="The official website built for IntelliCon &#x27;24, a hackathon organized by AIESEC at SLIIT, Sri Lanka.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Website for IntelliCon 2.0 — Deneth Priyadarshana</title>
+<meta name="description" content="The official registration and event site for IntelliCon 2.0, a coding competition organized by AIESEC at SLIIT, Sri Lanka.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300e5c7%22>&#9670;</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,36 +35,40 @@
         <span class="proj-badge">Completed</span>
         <span class="proj-badge">Apr 2024</span>
       </div>
+      <a class="btn proj-github-btn" href="https://github.com/denethp/intellicon-24" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        View GitHub Repository
+      </a>
     </div>
-    <h1 class="proj-title">Website for IntelliCon &#x27;24</h1>
-    <p class="proj-lede">The official website built for IntelliCon &#x27;24, a hackathon organized by AIESEC at SLIIT, Sri Lanka.</p>
+    <h1 class="proj-title">Website for IntelliCon 2.0</h1>
+    <p class="proj-lede">The official registration and event site for IntelliCon 2.0, a coding competition organized by AIESEC at SLIIT, Sri Lanka.</p>
 
     <div class="proj-media">
-      <img src="../assets/img/projects/intellicon-website.jpg" alt="Website for IntelliCon &#x27;24" loading="lazy"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="media-placeholder" style="display:none">
+      <div class="media-placeholder">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5-9 9"/></svg>
         <span>Image coming soon</span>
       </div>
     </div>
-    <p class="media-hint">Have a photo or video of this project? Send it over and I'll add it here.</p>
   </section>
 
   <section class="section" style="padding-top:0; border-top:none;">
     <div class="container proj-body">
       <div class="proj-main">
         <h2>Overview</h2>
-        <p>IntelliCon &#x27;24 needed a fast-turnaround event website — registration information, schedule, and event details — built and shipped ahead of the hackathon date.</p>
-        <p>The site was built on a classic Node.js/Express.js stack using Handlebars for server-rendered templating, backed by a lightweight SQLite database for storing registration and event data.</p>
-        <p>Working to a hard external deadline for an organizer outside the university was good practice in scoping a small web project tightly and shipping something reliable rather than over-engineering it.</p>
+        <p>IntelliCon 2.0 needed a full event website — schedule, a CodeRun competition section, an FAQ, and a working registration flow — built and shipped ahead of the competition date. The front end runs an animated particle-network hero and scroll-triggered reveal animations across a Node.js/Express backend with Handlebars templating.</p>
+        <p>Registration itself is a full account system rather than a static form: JWT-based authentication backs both a public registration flow and a separate admin login for managing entrants, with an SQLite database storing registration and event data behind it.</p>
+        <p>Working to a hard external deadline for an organizer outside the university was good practice in scoping a small web project tightly — client, server and database all had to be functional and polished by a fixed competition date rather than an open-ended one.</p>
 
         <h2>Key Features</h2>
         <ul class="feature-list">
-          <li><span class="f-num">01</span><span>Server-rendered pages using Express.js and Handlebars (hbs) templating</span></li>
-          <li><span class="f-num">02</span><span>SQLite-backed storage for event and registration data</span></li>
-          <li><span class="f-num">03</span><span>Responsive layout built with plain HTML/CSS for broad device compatibility</span></li>
-          <li><span class="f-num">04</span><span>Delivered to a fixed external deadline for a live hackathon event</span></li>
+          <li><span class="f-num">01</span><span>Animated particle-network hero and scroll-triggered section reveals</span></li>
+          <li><span class="f-num">02</span><span>Server-rendered pages using Express.js and Handlebars (hbs) templating</span></li>
+          <li><span class="f-num">03</span><span>JWT-authenticated registration flow with a separate admin login for managing entrants</span></li>
+          <li><span class="f-num">04</span><span>SQLite-backed storage for event and registration data</span></li>
+          <li><span class="f-num">05</span><span>Schedule, CodeRun competition and FAQ sections built for the live event</span></li>
         </ul>
+
+        
       </div>
 
       <aside class="proj-side">
@@ -72,28 +77,29 @@
           <div class="side-row"><span>Status</span><span>Completed</span></div>
           <div class="side-row"><span>Timeline</span><span>Apr 2024</span></div>
           <div class="side-row"><span>Role</span><span>Web Development</span></div>
-          <div class="side-row"><span>Team</span><span>AIESEC, SLIIT</span></div>
         </div>
         <div class="side-card">
           <h4>Tech Stack</h4>
-          <div class="chip-row"><span>JavaScript</span><span>Node.js</span><span>Express.js</span><span>Handlebars (hbs)</span><span>HTML</span><span>CSS</span><span>SQLite</span></div>
+          <div class="chip-row"><span>JavaScript</span><span>Node.js</span><span>Express.js</span><span>Handlebars (hbs)</span><span>JWT</span><span>HTML</span><span>CSS</span><span>SQLite</span></div>
         </div>
         <div class="side-card side-cta">
           <p class="cv-note">CV available upon request</p>
-          <a href="mailto:sadpriyadarshana@gmail.com?subject=CV%20Request" class="btn btn-primary">Request CV</a>
+          <a href="https://wa.me/94721432218?text=Hi%2C%20I%27d%20like%20to%20request%20your%20CV" target="_blank" rel="noopener" class="btn btn-primary cv-request-btn" data-contact-url="../index.html#contact">Request CV</a>
           <a href="../index.html#contact" class="btn btn-outline">Get in Touch</a>
         </div>
       </aside>
     </div>
 
+    
+
     <div class="container proj-nav">
-      <a href="unilink.html" class="proj-nav-link prev">
+      <a href="samp-gaming-server.html" class="proj-nav-link prev">
         <span class="proj-nav-label">&larr; Previous</span>
-        <span class="proj-nav-title">UniLink (beta)</span>
-      </a>
-      <a href="samp-gaming-server.html" class="proj-nav-link next">
-        <span class="proj-nav-label">Next &rarr;</span>
         <span class="proj-nav-title">SAMP Online Gaming Server</span>
+      </a>
+      <a href="6dof-robotic-arm.html" class="proj-nav-link next">
+        <span class="proj-nav-label">Next &rarr;</span>
+        <span class="proj-nav-title">6-DOF Robotic Arm</span>
       </a>
     </div>
   </section>

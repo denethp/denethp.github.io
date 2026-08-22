@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>ROS 2 Vision-Based Autonomous Line Following Robot — Deneth Priyadarshana</title>
 <meta name="description" content="A ROS 2 mobile robot that follows a line using nothing but a camera and a modular perception-to-control pipeline.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300e5c7%22>&#9670;</text></svg>">
@@ -34,26 +35,24 @@
         <span class="proj-badge is-accent">Ongoing</span>
         <span class="proj-badge">Jun 2026 – Present</span>
       </div>
+      
     </div>
     <h1 class="proj-title">ROS 2 Vision-Based Autonomous Line Following Robot</h1>
     <p class="proj-lede">A ROS 2 mobile robot that follows a line using nothing but a camera and a modular perception-to-control pipeline.</p>
 
     <div class="proj-media">
-      <img src="../assets/img/projects/ros2-vision-line-follower.jpg" alt="ROS 2 Vision-Based Autonomous Line Following Robot" loading="lazy"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="media-placeholder" style="display:none">
+      <div class="media-placeholder">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5-9 9"/></svg>
         <span>Image coming soon</span>
       </div>
     </div>
-    <p class="media-hint">Have a photo or video of this project? Send it over and I'll add it here.</p>
   </section>
 
   <section class="section" style="padding-top:0; border-top:none;">
     <div class="container proj-body">
       <div class="proj-main">
         <h2>Overview</h2>
-        <p>This is a personal project to build a proper ROS 2 stack from scratch rather than relying on simple analog line sensors. A Raspberry Pi 5 runs the core ROS 2 graph, receiving frames from a camera and processing them through an OpenCV-based image pipeline to detect the line&#x27;s position and curvature in real time.</p>
+        <p>This is a personal project to build a proper ROS 2 stack from scratch rather than relying on simple analog line sensors. A Raspberry Pi 4 runs the core ROS 2 graph, receiving frames from a camera and processing them through an OpenCV-based image pipeline to detect the line&#x27;s position and curvature in real time.</p>
         <p>Rather than one monolithic control script, the system is split into modular ROS 2 nodes — one for image processing and line detection, one for decision-making (translating detected line geometry into a target heading), and one for motion control that converts that heading into differential drive commands for the N20 motors, coordinated through an ESP32.</p>
         <p>The modular node structure means each part of the pipeline — perception, decision, and control — can be tuned, tested or swapped independently, which has made it much easier to debug failure modes (e.g. lighting changes) in isolation.</p>
 
@@ -61,10 +60,12 @@
         <ul class="feature-list">
           <li><span class="f-num">01</span><span>Camera-based real-time line detection and curvature estimation using OpenCV</span></li>
           <li><span class="f-num">02</span><span>Modular ROS 2 node architecture: perception, decision-making, and motion control as separate nodes</span></li>
-          <li><span class="f-num">03</span><span>Runs on Raspberry Pi 5 with an ESP32 handling low-level motor control</span></li>
+          <li><span class="f-num">03</span><span>Runs on Raspberry Pi 4 with an ESP32 handling low-level motor control</span></li>
           <li><span class="f-num">04</span><span>rclcpp-based nodes for low-latency C++ performance in the perception pipeline</span></li>
           <li><span class="f-num">05</span><span>Designed to be extensible toward more complex path-following and obstacle-avoidance behaviors</span></li>
         </ul>
+
+        
       </div>
 
       <aside class="proj-side">
@@ -73,7 +74,6 @@
           <div class="side-row"><span>Status</span><span>Ongoing</span></div>
           <div class="side-row"><span>Timeline</span><span>Jun 2026 – Present</span></div>
           <div class="side-row"><span>Role</span><span>Full-stack Robotics (Perception → Control)</span></div>
-          <div class="side-row"><span>Team</span><span>Individual (Personal Project)</span></div>
         </div>
         <div class="side-card">
           <h4>Tech Stack</h4>
@@ -81,11 +81,13 @@
         </div>
         <div class="side-card side-cta">
           <p class="cv-note">CV available upon request</p>
-          <a href="mailto:sadpriyadarshana@gmail.com?subject=CV%20Request" class="btn btn-primary">Request CV</a>
+          <a href="https://wa.me/94721432218?text=Hi%2C%20I%27d%20like%20to%20request%20your%20CV" target="_blank" rel="noopener" class="btn btn-primary cv-request-btn" data-contact-url="../index.html#contact">Request CV</a>
           <a href="../index.html#contact" class="btn btn-outline">Get in Touch</a>
         </div>
       </aside>
     </div>
+
+    
 
     <div class="container proj-nav">
       <a href="micromouse-maze-solver.html" class="proj-nav-link prev">

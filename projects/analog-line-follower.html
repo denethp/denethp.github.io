@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Fully Analog Line Follower — Deneth Priyadarshana</title>
-<meta name="description" content="Autonomous line following with zero microcontrollers — just IR sensors, comparators and analog feedback.">
+<meta name="description" content="A microcontroller-free autonomous line follower for EN2091 — sensing, PD control, PWM generation and motor driving all done in continuous-time analog hardware, with no firmware anywhere in the loop.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300e5c7%22>&#9670;</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,37 +35,65 @@
         <span class="proj-badge">Completed</span>
         <span class="proj-badge">Aug 2025 – Dec 2025</span>
       </div>
+      <a class="btn proj-github-btn" href="https://github.com/denethp/fully-analog-line-follower" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        View GitHub Repository
+      </a>
     </div>
     <h1 class="proj-title">Fully Analog Line Follower</h1>
-    <p class="proj-lede">Autonomous line following with zero microcontrollers — just IR sensors, comparators and analog feedback.</p>
+    <p class="proj-lede">A microcontroller-free autonomous line follower for EN2091 — sensing, PD control, PWM generation and motor driving all done in continuous-time analog hardware, with no firmware anywhere in the loop.</p>
 
-    <div class="proj-media">
-      <img src="../assets/img/projects/analog-line-follower.jpg" alt="Fully Analog Line Follower" loading="lazy"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="media-placeholder" style="display:none">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5-9 9"/></svg>
-        <span>Image coming soon</span>
-      </div>
+    <div class="proj-media proj-gallery">
+      <img id="galleryMain" src="../assets/img/projects/analog-line-follower/analog-line-follower-1.jpg" alt="The completed analog line follower">
     </div>
-    <p class="media-hint">Have a photo or video of this project? Send it over and I'll add it here.</p>
+    <div class="gallery-thumbs">
+        <button class="gallery-thumb is-active" data-src="../assets/img/projects/analog-line-follower/analog-line-follower-1.jpg" data-alt="The completed analog line follower" aria-label="View photo 1">
+          <img src="../assets/img/projects/analog-line-follower/analog-line-follower-1.jpg" alt="The completed analog line follower" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/analog-line-follower/analog-line-follower-2.jpg" data-alt="Assembled board — top-down view" aria-label="View photo 2">
+          <img src="../assets/img/projects/analog-line-follower/analog-line-follower-2.jpg" alt="Assembled board — top-down view" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/analog-line-follower/analog-line-follower-3.png" data-alt="Custom 4-layer PCB — routing layout" aria-label="View photo 3">
+          <img src="../assets/img/projects/analog-line-follower/analog-line-follower-3.png" alt="Custom 4-layer PCB — routing layout" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/analog-line-follower/analog-line-follower-4.png" data-alt="PCB 3D render — top view" aria-label="View photo 4">
+          <img src="../assets/img/projects/analog-line-follower/analog-line-follower-4.png" alt="PCB 3D render — top view" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/analog-line-follower/analog-line-follower-5.png" data-alt="PCB 3D render — bottom view" aria-label="View photo 5">
+          <img src="../assets/img/projects/analog-line-follower/analog-line-follower-5.png" alt="PCB 3D render — bottom view" loading="lazy">
+        </button>
+    </div>
   </section>
 
   <section class="section" style="padding-top:0; border-top:none;">
     <div class="container proj-body">
       <div class="proj-main">
         <h2>Overview</h2>
-        <p>This project deliberately avoids any microcontroller: it&#x27;s a line-following robot built entirely from discrete analog components — op-amps, transistors and comparator circuits doing the job usually handled by firmware.</p>
-        <p>IR sensors read the line contrast, feeding into comparator-driven control logic that directly maps sensor differential to motor drive signals. The result is a robot with essentially zero decision latency — the response is limited only by the analog circuit&#x27;s bandwidth, not by a CPU&#x27;s loop time.</p>
-        <p>The tradeoff, of course, is flexibility: every behavior had to be designed and tuned in hardware rather than software, which meant a lot of iteration on component values and comparator thresholds on the bench before the robot tracked reliably.</p>
+        <p>Most line followers process an IR sensor array in software. This one doesn&#x27;t — there&#x27;s no microcontroller, no programmable logic, and no code anywhere on the robot. An 8-channel TCRT5000 infrared array feeds resistor-weighted summing amplifiers built from LM324 op-amps, which continuously compute a single error voltage representing the line&#x27;s position, direction of deviation and magnitude, entirely in continuous time.</p>
+        <p>That error voltage drives a hardware Proportional-Derivative controller — adjustable Kp and Kd set by trimpots rather than software constants — which reacts immediately with no ADC conversion, no sampling delay, and no loop-execution time. PWM for the motors is generated the same way: a Schmitt-trigger oscillator and analog integrator produce a stable triangular carrier, which a comparator mixes against the PD output to produce continuously variable, adjustable-frequency PWM. An L293D H-bridge then drives the two DC gear motors with independent left/right differential steering.</p>
+        <p>My focus was the drive side of the loop: designing the Triangular Waveform Generator and the comparator-based PWM generation circuitry, then carrying that through to motor control implementation, hardware assembly/soldering and end-to-end system debugging. The full analog signal path — sensing, PD control, and PWM/motor drive — was laid out on a custom 4-layer PCB to keep the ground plane clean and EMI low, since a noisy analog front end is far more forgiving in software than it is when the &#x27;processor&#x27; is a breadboard of op-amps.</p>
 
         <h2>Key Features</h2>
         <ul class="feature-list">
-          <li><span class="f-num">01</span><span>Zero microcontrollers — fully discrete analog control circuit</span></li>
-          <li><span class="f-num">02</span><span>IR-based line sensing with comparator-driven differential steering logic</span></li>
-          <li><span class="f-num">03</span><span>Op-amp based analog feedback loop for continuous path correction</span></li>
-          <li><span class="f-num">04</span><span>N20 DC motors (300 RPM) selected for torque/speed balance on the analog drive stage</span></li>
-          <li><span class="f-num">05</span><span>Mechanical chassis modeled in SOLIDWORKS, PCB laid out in Altium Designer</span></li>
+          <li><span class="f-num">01</span><span>Fully analog control loop — zero microcontrollers, zero firmware, zero digital logic</span></li>
+          <li><span class="f-num">02</span><span>8-channel TCRT5000 IR array with resistor-weighted analog error summation (LM324 op-amps)</span></li>
+          <li><span class="f-num">03</span><span>Hardware PD controller with adjustable proportional (Kp) and derivative (Kd) gain trimpots</span></li>
+          <li><span class="f-num">04</span><span>Analog triangular-wave PWM generator (Schmitt trigger + integrator + comparator) with adjustable frequency</span></li>
+          <li><span class="f-num">05</span><span>L293D H-bridge driving independent left/right differential steering with adjustable minimum wheel speed</span></li>
+          <li><span class="f-num">06</span><span>Custom 4-layer PCB with isolated analog/motor power rails and dedicated debugging switches</span></li>
         </ul>
+
+        <h2>Runs</h2>
+        <div class="video-grid">
+        <div class="video-card yt-card" style="aspect-ratio:16/9" data-yt-id="-q05K0lNBug" data-video-label="Final Demo">
+          <img src="https://i.ytimg.com/vi/-q05K0lNBug/hqdefault.jpg" alt="Final Demo" loading="lazy">
+          <span class="yt-badge">YouTube</span>
+          <button type="button" class="yt-play-btn" aria-label="Play on YouTube" tabindex="-1">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <p class="video-label">Final Demo</p>
+        </div>
+        </div>
       </div>
 
       <aside class="proj-side">
@@ -72,20 +101,21 @@
           <h4>Project Info</h4>
           <div class="side-row"><span>Status</span><span>Completed</span></div>
           <div class="side-row"><span>Timeline</span><span>Aug 2025 – Dec 2025</span></div>
-          <div class="side-row"><span>Role</span><span>Analog Circuit Design</span></div>
-          <div class="side-row"><span>Team</span><span>Individual (University Project)</span></div>
+          <div class="side-row"><span>Role</span><span>Electronic Design, 1kHz PWM Generation, and Analog-Level Control Systems Design</span></div>
         </div>
         <div class="side-card">
           <h4>Tech Stack</h4>
-          <div class="chip-row"><span>Op-Amps</span><span>Transistors</span><span>N20 DC Motors (300 RPM)</span><span>Altium Designer</span><span>SOLIDWORKS</span></div>
+          <div class="chip-row"><span>LM324 Op-Amps</span><span>L293D Motor Driver</span><span>TCRT5000 IR Sensors</span><span>Altium Designer</span><span>LTspice</span></div>
         </div>
         <div class="side-card side-cta">
           <p class="cv-note">CV available upon request</p>
-          <a href="mailto:sadpriyadarshana@gmail.com?subject=CV%20Request" class="btn btn-primary">Request CV</a>
+          <a href="https://wa.me/94721432218?text=Hi%2C%20I%27d%20like%20to%20request%20your%20CV" target="_blank" rel="noopener" class="btn btn-primary cv-request-btn" data-contact-url="../index.html#contact">Request CV</a>
           <a href="../index.html#contact" class="btn btn-outline">Get in Touch</a>
         </div>
       </aside>
     </div>
+
+    
 
     <div class="container proj-nav">
       <a href="multi-challenge-competition-robot.html" class="proj-nav-link prev">

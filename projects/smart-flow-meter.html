@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Smart Contact-based Flow Meter — Deneth Priyadarshana</title>
-<meta name="description" content="An IoT-enabled smart water flow meter with live monitoring, history, and threshold alerts on a companion mobile app.">
+<meta name="description" content="An IoT-enabled smart water flow meter for EN1190 — live flow monitoring, historical analytics and threshold alerts on a cross-platform mobile app, built around an affordable, locally manufacturable design.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300e5c7%22>&#9670;</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,37 +35,106 @@
         <span class="proj-badge">Completed</span>
         <span class="proj-badge">Feb 2025 – Jul 2025</span>
       </div>
+      <a class="btn proj-github-btn" href="https://github.com/denethp/Smart-Contact-Based-Flow-Meter" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        View GitHub Repository
+      </a>
     </div>
     <h1 class="proj-title">Smart Contact-based Flow Meter</h1>
-    <p class="proj-lede">An IoT-enabled smart water flow meter with live monitoring, history, and threshold alerts on a companion mobile app.</p>
+    <p class="proj-lede">An IoT-enabled smart water flow meter for EN1190 — live flow monitoring, historical analytics and threshold alerts on a cross-platform mobile app, built around an affordable, locally manufacturable design.</p>
 
-    <div class="proj-media">
-      <img src="../assets/img/projects/smart-flow-meter.jpg" alt="Smart Contact-based Flow Meter" loading="lazy"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="media-placeholder" style="display:none">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5-9 9"/></svg>
-        <span>Image coming soon</span>
-      </div>
+    <div class="proj-media proj-gallery">
+      <img id="galleryMain" src="../assets/img/projects/smart-flow-meter/smart-flow-meter-final.jpg" alt="The completed smart flow meter">
     </div>
-    <p class="media-hint">Have a photo or video of this project? Send it over and I'll add it here.</p>
+    <div class="gallery-thumbs">
+        <button class="gallery-thumb is-active" data-src="../assets/img/projects/smart-flow-meter/smart-flow-meter-final.jpg" data-alt="The completed smart flow meter" aria-label="View photo 1">
+          <img src="../assets/img/projects/smart-flow-meter/smart-flow-meter-final.jpg" alt="The completed smart flow meter" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/smart-flow-meter/smart-flow-meter-internals.jpg" data-alt="Internal electronics and PCB" aria-label="View photo 2">
+          <img src="../assets/img/projects/smart-flow-meter/smart-flow-meter-internals.jpg" alt="Internal electronics and PCB" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-1.png" data-alt="The mobile app — welcome screen" aria-label="View photo 3">
+          <img src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-1.png" alt="The mobile app — welcome screen" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-2.png" data-alt="The mobile app — sign up" aria-label="View photo 4">
+          <img src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-2.png" alt="The mobile app — sign up" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-3.png" data-alt="The mobile app — sign in" aria-label="View photo 5">
+          <img src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-3.png" alt="The mobile app — sign in" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-4.png" data-alt="The mobile app — dashboard, active flow meters" aria-label="View photo 6">
+          <img src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-4.png" alt="The mobile app — dashboard, active flow meters" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-5.png" data-alt="The mobile app — live monitoring view" aria-label="View photo 7">
+          <img src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-5.png" alt="The mobile app — live monitoring view" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-6.png" data-alt="The mobile app — flow rate, temperature and total volume" aria-label="View photo 8">
+          <img src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-6.png" alt="The mobile app — flow rate, temperature and total volume" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-7.png" data-alt="The mobile app — device info, limits and WiFi" aria-label="View photo 9">
+          <img src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-7.png" alt="The mobile app — device info, limits and WiFi" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-8.png" data-alt="The mobile app — device settings" aria-label="View photo 10">
+          <img src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-8.png" alt="The mobile app — device settings" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-9.png" data-alt="The mobile app — historical analytics, last 30 seconds" aria-label="View photo 11">
+          <img src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-9.png" alt="The mobile app — historical analytics, last 30 seconds" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-10.png" data-alt="The mobile app — historical analytics, last 60 seconds" aria-label="View photo 12">
+          <img src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-10.png" alt="The mobile app — historical analytics, last 60 seconds" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-11.png" data-alt="The mobile app — historical analytics, last 5 minutes" aria-label="View photo 13">
+          <img src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-11.png" alt="The mobile app — historical analytics, last 5 minutes" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-12.png" data-alt="The mobile app — historical analytics, last 10 minutes" aria-label="View photo 14">
+          <img src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-12.png" alt="The mobile app — historical analytics, last 10 minutes" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-13.png" data-alt="The mobile app — about" aria-label="View photo 15">
+          <img src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-13.png" alt="The mobile app — about" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-14.png" data-alt="The mobile app — account and owned devices" aria-label="View photo 16">
+          <img src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-14.png" alt="The mobile app — account and owned devices" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-15.png" data-alt="The mobile app — splash screen" aria-label="View photo 17">
+          <img src="../assets/img/projects/smart-flow-meter/smart-flow-meter-app-15.png" alt="The mobile app — splash screen" loading="lazy">
+        </button>
+    </div>
   </section>
 
   <section class="section" style="padding-top:0; border-top:none;">
     <div class="container proj-body">
       <div class="proj-main">
         <h2>Overview</h2>
-        <p>This project pairs embedded firmware with a full mobile application to turn a simple paddle-wheel flow sensor into a connected IoT device. An ESP8266 reads flow rate from the paddle wheel sensor and temperature from an onboard sensor, displaying live readings on an OLED screen and streaming data wirelessly.</p>
-        <p>On the software side, a React Native app connects to the device over WebSockets for live monitoring, backed by a Node.js/Express.js server with JWT-secured authentication and a SQLite database for storing historical flow data.</p>
-        <p>Users can configure flow-rate thresholds in the app and receive notifications when readings cross them — turning what would otherwise be a passive sensor into an actively monitored system.</p>
+        <p>Built for the EN1190 Engineering Design Project, this project turns a basic paddle-wheel flow sensor into a fully connected IoT device. An ESP8266 reads flow rate and water temperature, drives a local OLED display for standalone operation, and streams live readings over Wi-Fi — with the whole board running off a rechargeable Li-ion cell through a TP4056 charging circuit and a custom PCB in a 3D-printed enclosure.</p>
+        <p>On the software side, a React Native mobile app connects to the device in real time over WebSockets, backed by a Node.js server and SQLite database that store historical consumption data and enforce JWT-based authentication. Beyond live flow rate and temperature, the app surfaces total consumption, historical trends, multi-device management and configurable overflow/underflow alerts.</p>
+        <p>I owned both ends of this stack — the ESP8266 firmware reading and conditioning the flow-sensor and temperature signals and pushing them out over Wi-Fi, and the React Native app (Android and iOS) that consumes that stream, renders it live, and handles authentication and historical analytics. Getting both sides talking reliably over WebSockets, with the app staying responsive and the firmware staying real-time, was the core engineering problem.</p>
 
         <h2>Key Features</h2>
         <ul class="feature-list">
-          <li><span class="f-num">01</span><span>Real-time flow rate and temperature monitoring via ESP8266 firmware</span></li>
-          <li><span class="f-num">02</span><span>OLED on-device display alongside live WebSocket streaming to the mobile app</span></li>
-          <li><span class="f-num">03</span><span>React Native cross-platform app for live monitoring and historical data visualization</span></li>
-          <li><span class="f-num">04</span><span>Node.js/Express.js backend with JWT authentication and a SQLite data store</span></li>
-          <li><span class="f-num">05</span><span>Configurable flow thresholds with push notifications for out-of-range readings</span></li>
+          <li><span class="f-num">01</span><span>Real-time flow rate and water temperature monitoring via a paddle-wheel sensor and ESP8266</span></li>
+          <li><span class="f-num">02</span><span>Local OLED display for standalone, app-free operation</span></li>
+          <li><span class="f-num">03</span><span>React Native mobile app (Android &amp; iOS) with live WebSocket monitoring and historical analytics</span></li>
+          <li><span class="f-num">04</span><span>JWT-authenticated Node.js backend with a SQLite data store for consumption history</span></li>
+          <li><span class="f-num">05</span><span>Configurable overflow/underflow notifications and multi-device management in-app</span></li>
+          <li><span class="f-num">06</span><span>Custom PCB and 3D-printed enclosure, powered by a rechargeable Li-ion cell via TP4056 charging</span></li>
         </ul>
+
+        <h2>Runs</h2>
+        <div class="video-grid">
+        <div class="video-card" style="aspect-ratio:848/480" data-video-src="../assets/img/projects/smart-flow-meter/smart-flow-meter-demo.mp4" data-video-label="Project Demonstration">
+          <video controls preload="metadata" poster="">
+            <source src="../assets/img/projects/smart-flow-meter/smart-flow-meter-demo.mp4" type="video/mp4">
+          </video>
+          <button type="button" class="video-expand-btn" aria-label="Expand video">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4M15 3h4a2 2 0 0 1 2 2v4M9 21H5a2 2 0 0 1-2-2v-4M15 21h4a2 2 0 0 0 2-2v-4"/></svg>
+          </button>
+          <div class="video-placeholder">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
+            <span>Video coming soon</span>
+          </div>
+          <p class="video-label">Project Demonstration</p>
+        </div>
+        </div>
       </div>
 
       <aside class="proj-side">
@@ -72,20 +142,21 @@
           <h4>Project Info</h4>
           <div class="side-row"><span>Status</span><span>Completed</span></div>
           <div class="side-row"><span>Timeline</span><span>Feb 2025 – Jul 2025</span></div>
-          <div class="side-row"><span>Role</span><span>Embedded Firmware &amp; Mobile App</span></div>
-          <div class="side-row"><span>Team</span><span>Individual (University Project)</span></div>
+          <div class="side-row"><span>Role</span><span>Firmware Development &amp; Full-Stack Development of the App</span></div>
         </div>
         <div class="side-card">
           <h4>Tech Stack</h4>
-          <div class="chip-row"><span>ESP8266</span><span>Paddle Wheel Flow Sensor</span><span>OLED Display</span><span>React Native</span><span>Node.js</span><span>Express.js</span><span>SQLite</span><span>WebSockets</span><span>JWT</span><span>C/C++</span><span>JavaScript</span><span>Altium Designer</span><span>SOLIDWORKS</span></div>
+          <div class="chip-row"><span>ESP8266</span><span>Paddle Wheel Flow Sensor</span><span>OLED Display</span><span>React Native</span><span>Node.js</span><span>SQLite</span><span>WebSockets</span><span>JWT</span><span>C/C++ (Arduino)</span><span>JavaScript</span></div>
         </div>
         <div class="side-card side-cta">
           <p class="cv-note">CV available upon request</p>
-          <a href="mailto:sadpriyadarshana@gmail.com?subject=CV%20Request" class="btn btn-primary">Request CV</a>
+          <a href="https://wa.me/94721432218?text=Hi%2C%20I%27d%20like%20to%20request%20your%20CV" target="_blank" rel="noopener" class="btn btn-primary cv-request-btn" data-contact-url="../index.html#contact">Request CV</a>
           <a href="../index.html#contact" class="btn btn-outline">Get in Touch</a>
         </div>
       </aside>
     </div>
+
+    
 
     <div class="container proj-nav">
       <a href="analog-motor-speed-controller.html" class="proj-nav-link prev">

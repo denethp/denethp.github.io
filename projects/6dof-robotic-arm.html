@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>6-DOF Robotic Arm — Deneth Priyadarshana</title>
-<meta name="description" content="A computer-vision guided 6-DOF robotic arm — from a hand-cut aluminium frame to closed-loop pick-and-place.">
+<meta name="description" content="A 6-DOF robotic arm built entirely from scratch: mechanics, firmware, kinematics, and a live digital twin, all driven from a single command.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300e5c7%22>&#9670;</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,37 +35,143 @@
         <span class="proj-badge is-accent">Completed</span>
         <span class="proj-badge">Feb 2026 – Jul 2026</span>
       </div>
+      <a class="btn proj-github-btn" href="https://github.com/denethp/6-dof-robotic-arm" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        View GitHub Repository
+      </a>
     </div>
     <h1 class="proj-title">6-DOF Robotic Arm</h1>
-    <p class="proj-lede">A computer-vision guided 6-DOF robotic arm — from a hand-cut aluminium frame to closed-loop pick-and-place.</p>
+    <p class="proj-lede">A 6-DOF robotic arm built entirely from scratch: mechanics, firmware, kinematics, and a live digital twin, all driven from a single command.</p>
 
-    <div class="proj-media">
-      <img src="../assets/img/projects/6dof-robotic-arm.jpg" alt="6-DOF Robotic Arm" loading="lazy"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="media-placeholder" style="display:none">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.6"/><path d="M21 15l-5-5-9 9"/></svg>
-        <span>Image coming soon</span>
-      </div>
+    <div class="proj-media proj-gallery">
+      <img id="galleryMain" src="../assets/img/projects/6dof-robotic-arm/arm-final-hero.jpg" alt="The completed 6-DOF arm — gripper detail">
     </div>
-    <p class="media-hint">Have a photo or video of this project? Send it over and I'll add it here.</p>
+    <div class="gallery-thumbs">
+        <button class="gallery-thumb is-active" data-src="../assets/img/projects/6dof-robotic-arm/arm-final-hero.jpg" data-alt="The completed 6-DOF arm — gripper detail" aria-label="View photo 1">
+          <img src="../assets/img/projects/6dof-robotic-arm/arm-final-hero.jpg" alt="The completed 6-DOF arm — gripper detail" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/6dof-robotic-arm/arm-side-profile.jpg" data-alt="Full side profile — base to gripper" aria-label="View photo 2">
+          <img src="../assets/img/projects/6dof-robotic-arm/arm-side-profile.jpg" alt="Full side profile — base to gripper" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/6dof-robotic-arm/arm-front-angle.jpg" data-alt="Front three-quarter view" aria-label="View photo 3">
+          <img src="../assets/img/projects/6dof-robotic-arm/arm-front-angle.jpg" alt="Front three-quarter view" loading="lazy">
+        </button>
+        <button class="gallery-thumb" data-src="../assets/img/projects/6dof-robotic-arm/arm-rear-view.jpg" data-alt="Rear view showing the shoulder and elbow drivetrain" aria-label="View photo 4">
+          <img src="../assets/img/projects/6dof-robotic-arm/arm-rear-view.jpg" alt="Rear view showing the shoulder and elbow drivetrain" loading="lazy">
+        </button>
+    </div>
   </section>
 
   <section class="section" style="padding-top:0; border-top:none;">
     <div class="container proj-body">
       <div class="proj-main">
         <h2>Overview</h2>
-        <p>This project set out to build a full six-degree-of-freedom robotic arm capable of perceiving, localizing and manipulating objects autonomously. The mechanical structure was custom-designed and fabricated from 4mm sheet metal aluminium, chosen for its balance of rigidity and weight for a desktop-scale arm.</p>
-        <p>On the software side, I modeled the arm&#x27;s forward and inverse kinematics in MATLAB, simulating joint trajectories before ever touching hardware. This let me validate reachability and avoid singularities ahead of time, then carry the same kinematic model over into the STM32 firmware that drives the six NEMA stepper motors in coordinated motion.</p>
-        <p>A camera-based computer vision pipeline handles object detection and localization, converting pixel coordinates into arm-frame targets that the inverse kinematics solver turns into joint angles — closing the loop from &#x27;see it&#x27; to &#x27;pick it up&#x27;.</p>
+        <p>A fully custom 6-axis robotic arm, not a kit — every layer was designed, debugged and integrated in-house. A SolidWorks CAD assembly feeds a Simscape Multibody digital twin, which shares its rigid-body model with a MATLAB inverse-kinematics solver; solved trajectories stream over USB CDC to an STM32H743 running at 420MHz, which drives six stepper axes and a gripper while reading back position from six AS5047P absolute encoders. The headline feature: a single command moves the physical arm and its 3D digital twin simultaneously, in sync, in real time.</p>
+        <p>Motor selection followed one rule — torque scales with how much arm you&#x27;re carrying. The base and shoulder/elbow joints (which lift the entire outboard arm) run on NEMA 24 and NEMA 23 steppers through closed-loop CL57T drivers, so a missed step gets detected and corrected before it becomes a dropped arm. The wrist joints only have to position the end-effector, so they run smaller NEMA 17s on onboard TMC2209 drivers instead. All six axes are computed independently inside a single 2kHz timer interrupt running a trapezoidal accelerate–cruise–decelerate profile.</p>
+        <p>The kinematic model is the same rigidBodyTree on both sides of the USB link: MATLAB&#x27;s inverseKinematics solver turns a target position and orientation into six joint angles, which are blended into a quintic (5th-order) trajectory for zero velocity and acceleration at both ends of every move — so the arm starts and stops smoothly instead of jerking. Along the way this project proved out a real kinematics constraint: a 6-DOF arm cannot hold both tip position and tool orientation fixed while it reconfigures — that needs a 7th degree of freedom — so every demo deliberately locks one and sweeps the other.</p>
+        <p>The hardest bug wasn&#x27;t mechanical — it was a phantom one. Encoder readings on a stationary joint appeared to swing 60–70° between samples, and slowing the SPI clock down made it worse, which ruled out a signal-integrity problem. The actual cause was a −1 error sentinel from a failed read being silently averaged in with valid samples; filtering it out before averaging brought repeatability to ±0.01°. A separate Web Serial control panel now lets anyone drive the arm from Chrome or Edge alone — recorded sequences, per-joint sliders and a live command log — with no MATLAB license required to operate it, even though MATLAB remains the authoring environment for kinematics and trajectory design.</p>
 
         <h2>Key Features</h2>
         <ul class="feature-list">
-          <li><span class="f-num">01</span><span>Custom 4mm aluminium sheet-metal structure designed in SOLIDWORKS for rigidity at low weight</span></li>
-          <li><span class="f-num">02</span><span>Forward &amp; inverse kinematics derived and validated through MATLAB trajectory simulation</span></li>
-          <li><span class="f-num">03</span><span>Coordinated multi-axis motion control across NEMA 24/23/17 stepper motors via STM32</span></li>
-          <li><span class="f-num">04</span><span>Computer-vision object detection and localization feeding real-world target coordinates into the kinematic solver</span></li>
-          <li><span class="f-num">05</span><span>PCB and wiring harness design in Altium Designer for the control electronics</span></li>
+          <li><span class="f-num">01</span><span>Tiered stepper drivetrain (NEMA 24/23/17) matched to torque and stall risk per joint, with closed-loop CL57T drivers on the two lifting joints</span></li>
+          <li><span class="f-num">02</span><span>Six AS5047P absolute magnetic encoders (14-bit, SPI) giving every joint real position feedback</span></li>
+          <li><span class="f-num">03</span><span>2kHz trapezoidal motion-profile ISR on an STM32H743 @ 420MHz, computing accel/cruise/decel independently per axis</span></li>
+          <li><span class="f-num">04</span><span>MATLAB rigidBodyTree + inverseKinematics solver with quintic-blended trajectories for jerk-free motion</span></li>
+          <li><span class="f-num">05</span><span>Synchronised digital twin — one command drives the physical arm and the Simscape 3D model together, in real time</span></li>
+          <li><span class="f-num">06</span><span>Custom control PCB (Altium Designer) integrating the STM32H743, encoder SPI bus and mixed open-drain/push-pull driver interfacing</span></li>
+          <li><span class="f-num">07</span><span>Standalone Web Serial control panel — browser-only jogging, recorded sequences and live command logging, no MATLAB or Python required to operate</span></li>
+          <li><span class="f-num">08</span><span>OpenCV colour-segmentation and homography pipeline converting camera pixels into real-world XYZ targets for the inverse-kinematics solver</span></li>
         </ul>
+
+        <h2>Runs</h2>
+        <div class="video-grid">
+        <div class="video-card" style="aspect-ratio:540/960" data-video-src="../assets/img/projects/6dof-robotic-arm/arm-vision-detection.mp4" data-video-label="Vision-Guided Object Detection">
+          <video controls preload="metadata" poster="">
+            <source src="../assets/img/projects/6dof-robotic-arm/arm-vision-detection.mp4" type="video/mp4">
+          </video>
+          <button type="button" class="video-expand-btn" aria-label="Expand video">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4M15 3h4a2 2 0 0 1 2 2v4M9 21H5a2 2 0 0 1-2-2v-4M15 21h4a2 2 0 0 0 2-2v-4"/></svg>
+          </button>
+          <div class="video-placeholder">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
+            <span>Video coming soon</span>
+          </div>
+          <p class="video-label">Vision-Guided Object Detection</p>
+        </div>
+        <div class="video-card" style="aspect-ratio:540/960" data-video-src="../assets/img/projects/6dof-robotic-arm/arm-object-localization.mp4" data-video-label="Object Localization &amp; Reach">
+          <video controls preload="metadata" poster="">
+            <source src="../assets/img/projects/6dof-robotic-arm/arm-object-localization.mp4" type="video/mp4">
+          </video>
+          <button type="button" class="video-expand-btn" aria-label="Expand video">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4M15 3h4a2 2 0 0 1 2 2v4M9 21H5a2 2 0 0 1-2-2v-4M15 21h4a2 2 0 0 0 2-2v-4"/></svg>
+          </button>
+          <div class="video-placeholder">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
+            <span>Video coming soon</span>
+          </div>
+          <p class="video-label">Object Localization &amp; Reach</p>
+        </div>
+        <div class="video-card" style="aspect-ratio:540/960" data-video-src="../assets/img/projects/6dof-robotic-arm/arm-wrist-roll.mp4" data-video-label="Wrist Roll">
+          <video controls preload="metadata" poster="">
+            <source src="../assets/img/projects/6dof-robotic-arm/arm-wrist-roll.mp4" type="video/mp4">
+          </video>
+          <button type="button" class="video-expand-btn" aria-label="Expand video">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4M15 3h4a2 2 0 0 1 2 2v4M9 21H5a2 2 0 0 1-2-2v-4M15 21h4a2 2 0 0 0 2-2v-4"/></svg>
+          </button>
+          <div class="video-placeholder">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
+            <span>Video coming soon</span>
+          </div>
+          <p class="video-label">Wrist Roll</p>
+        </div>
+        <div class="video-card" style="aspect-ratio:16/9" data-video-src="../assets/img/projects/6dof-robotic-arm/arm-base-rotation.mp4" data-video-label="Base Rotation">
+          <video controls preload="metadata" poster="">
+            <source src="../assets/img/projects/6dof-robotic-arm/arm-base-rotation.mp4" type="video/mp4">
+          </video>
+          <button type="button" class="video-expand-btn" aria-label="Expand video">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4M15 3h4a2 2 0 0 1 2 2v4M9 21H5a2 2 0 0 1-2-2v-4M15 21h4a2 2 0 0 0 2-2v-4"/></svg>
+          </button>
+          <div class="video-placeholder">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
+            <span>Video coming soon</span>
+          </div>
+          <p class="video-label">Base Rotation</p>
+        </div>
+        <div class="video-card" style="aspect-ratio:1280/720" data-video-src="../assets/img/projects/6dof-robotic-arm/arm-motors-bench.mp4" data-video-label="Motors &amp; Drivers Bench Test">
+          <video controls preload="metadata" poster="">
+            <source src="../assets/img/projects/6dof-robotic-arm/arm-motors-bench.mp4" type="video/mp4">
+          </video>
+          <button type="button" class="video-expand-btn" aria-label="Expand video">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4M15 3h4a2 2 0 0 1 2 2v4M9 21H5a2 2 0 0 1-2-2v-4M15 21h4a2 2 0 0 0 2-2v-4"/></svg>
+          </button>
+          <div class="video-placeholder">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
+            <span>Video coming soon</span>
+          </div>
+          <p class="video-label">Motors &amp; Drivers Bench Test</p>
+        </div>
+        <div class="video-card" style="aspect-ratio:464/832" data-video-src="../assets/img/projects/6dof-robotic-arm/arm-prototype-build.mp4" data-video-label="Early Prototype Build">
+          <video controls preload="metadata" poster="">
+            <source src="../assets/img/projects/6dof-robotic-arm/arm-prototype-build.mp4" type="video/mp4">
+          </video>
+          <button type="button" class="video-expand-btn" aria-label="Expand video">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4M15 3h4a2 2 0 0 1 2 2v4M9 21H5a2 2 0 0 1-2-2v-4M15 21h4a2 2 0 0 0 2-2v-4"/></svg>
+          </button>
+          <div class="video-placeholder">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>
+            <span>Video coming soon</span>
+          </div>
+          <p class="video-label">Early Prototype Build</p>
+        </div>
+        <div class="video-card yt-card" style="aspect-ratio:16/9" data-yt-id="oTu1l9RB2gY" data-video-label="Full Summary Video">
+          <img src="https://i.ytimg.com/vi/oTu1l9RB2gY/hqdefault.jpg" alt="Full Summary Video" loading="lazy">
+          <span class="yt-badge">YouTube</span>
+          <button type="button" class="yt-play-btn" aria-label="Play on YouTube" tabindex="-1">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <p class="video-label">Full Summary Video</p>
+        </div>
+        </div>
       </div>
 
       <aside class="proj-side">
@@ -72,25 +179,26 @@
           <h4>Project Info</h4>
           <div class="side-row"><span>Status</span><span>Completed</span></div>
           <div class="side-row"><span>Timeline</span><span>Feb 2026 – Jul 2026</span></div>
-          <div class="side-row"><span>Role</span><span>Design, Firmware &amp; Kinematics</span></div>
-          <div class="side-row"><span>Team</span><span>Individual (University Project)</span></div>
+          <div class="side-row"><span>Role</span><span>Firmware, Kinematics &amp; Digital Twin, and Mechanical Design of the Arm</span></div>
         </div>
         <div class="side-card">
           <h4>Tech Stack</h4>
-          <div class="chip-row"><span>STM32</span><span>NEMA 24/23/17 Steppers</span><span>4mm Aluminium Sheet Metal</span><span>SOLIDWORKS</span><span>C/C++</span><span>Altium Designer</span><span>MATLAB</span></div>
+          <div class="chip-row"><span>STM32H743</span><span>C (HAL)</span><span>MATLAB / Simscape</span><span>Altium Designer</span><span>SolidWorks</span><span>AS5047P Encoders</span><span>Web Serial API</span><span>OpenCV / Python</span></div>
         </div>
         <div class="side-card side-cta">
           <p class="cv-note">CV available upon request</p>
-          <a href="mailto:sadpriyadarshana@gmail.com?subject=CV%20Request" class="btn btn-primary">Request CV</a>
+          <a href="https://wa.me/94721432218?text=Hi%2C%20I%27d%20like%20to%20request%20your%20CV" target="_blank" rel="noopener" class="btn btn-primary cv-request-btn" data-contact-url="../index.html#contact">Request CV</a>
           <a href="../index.html#contact" class="btn btn-outline">Get in Touch</a>
         </div>
       </aside>
     </div>
 
+    
+
     <div class="container proj-nav">
-      <a href="samp-gaming-server.html" class="proj-nav-link prev">
+      <a href="intellicon-website.html" class="proj-nav-link prev">
         <span class="proj-nav-label">&larr; Previous</span>
-        <span class="proj-nav-title">SAMP Online Gaming Server</span>
+        <span class="proj-nav-title">Website for IntelliCon 2.0</span>
       </a>
       <a href="micromouse-maze-solver.html" class="proj-nav-link next">
         <span class="proj-nav-label">Next &rarr;</span>
