@@ -220,18 +220,34 @@ document.querySelectorAll('.cv-request-btn').forEach(btn => {
   });
 });
 
-/* Active nav link highlighting */
-const sections = document.querySelectorAll('main section[id]');
+/* Active nav link highlighting.
+   An IntersectionObserver keyed on "40% of the section visible" used to drive
+   this, but that ratio is measured against each section's FULL height — a
+   short section (About, Skills, Contact) clears 40% easily, but a long one
+   (Education, Projects) is taller than the viewport itself, so 40% of its
+   total area is never on screen at once and it silently never lit up while
+   scrolled through the middle of it. Tracking "which section's top edge is
+   the last one to have scrolled past the nav" instead works for any section
+   height, since it only looks at the boundary, never the whole area. */
+const sections = Array.from(document.querySelectorAll('main section[id]'));
 const navLinks = document.querySelectorAll('#navLinks a');
-const navObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    const id = entry.target.getAttribute('id');
-    const link = document.querySelector(`#navLinks a[href="#${id}"]`);
-    if (!link) return;
-    if (entry.isIntersecting) {
-      navLinks.forEach(l => l.classList.remove('is-current'));
-      link.classList.add('is-current');
+function updateActiveNavLink() {
+  const navHeight = document.getElementById('nav')?.offsetHeight || 0;
+  const line = navHeight + 40; // a little past the sticky nav, into the page
+  let current = sections[0];
+  for (const sec of sections) {
+    if (sec.getBoundingClientRect().top <= line) {
+      current = sec;
     }
-  });
-}, { threshold: 0.4, rootMargin: '-68px 0px -50% 0px' });
-sections.forEach(s => navObserver.observe(s));
+  }
+  const id = current?.getAttribute('id');
+  navLinks.forEach(l => l.classList.toggle('is-current', l.getAttribute('href') === `#${id}`));
+}
+let navTicking = false;
+window.addEventListener('scroll', () => {
+  if (navTicking) return;
+  navTicking = true;
+  requestAnimationFrame(() => { updateActiveNavLink(); navTicking = false; });
+}, { passive: true });
+window.addEventListener('resize', updateActiveNavLink);
+updateActiveNavLink();
