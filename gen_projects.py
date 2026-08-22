@@ -136,7 +136,7 @@ projects = [
       dict(
         gid="blaze-v1",
         label="Blaze v1",
-        date="Mon. 2025",
+        date="Dec. 2025",
         tagline="First STM32 build",
         meta="STM32G431CBU6 · Custom PCB",
         role="Hardware Design, Electronic Design, PCB Design, Soldering, Firmware & Control Systems / Trajectory Planning",
@@ -153,7 +153,7 @@ projects = [
       dict(
         gid="chia-v3",
         label="Chia v3",
-        date="Mon. 2024",
+        date="Sep. 2025",
         tagline="Custom PCB, more power",
         meta="Teensy 4.1 · Custom 2-layer PCB",
         role="Firmware & Control Systems / Trajectory Planning",
@@ -166,7 +166,7 @@ projects = [
       dict(
         gid="chia-v2",
         label="Chia v2",
-        date="Mon. 2024",
+        date="Aug. 2025",
         tagline="First working platform",
         meta="Teensy 4.1 · Custom electronics",
         role="Firmware & Control Systems / Trajectory Planning",
@@ -178,7 +178,7 @@ projects = [
       dict(
         gid="chia-v1",
         label="Chia v1",
-        date="Mon. 2024",
+        date="Jun. 2025",
         tagline="Where it all started",
         meta="Teensy 3.2 · Custom electronics",
         role="Firmware & Control Systems / Trajectory Planning",
@@ -196,8 +196,7 @@ projects = [
     current_mouse=dict(
       gid="blaze-v2",
       label="Blaze v2",
-      # date is auto-derived from this project's own `dates` field above (see the sync loop
-      # right after the `projects` list) — do not set it here, it would just be overwritten.
+      date="Mar. 2026",
       tagline="Current generation",
       meta="STM32 · Custom 4-layer PCB",
       thumb="blaze-v2/blaze-v2-1.jpg",
@@ -518,12 +517,13 @@ projects = [
   ),
 ]
 
-# The top-level `dates` field on a project is the single source of truth for its timeline.
-# current_mouse.date used to be a separate, manually-duplicated field — auto-derive it here
-# instead, so the "current generation" card on a micromouse family page never drifts out of
-# sync with the project's own Timeline field.
+# The top-level `dates` field on a project is the single source of truth for its overall
+# timeline (used on the index card and detail-page header). current_mouse.date is a distinct,
+# shorter "generation" date (e.g. "Mar. 2026") shown alongside the other mouse generations on
+# the family page, so it's set explicitly per mouse rather than derived from `dates` — only
+# fall back to `dates` if a mouse dict doesn't set its own date.
 for _p in projects:
-    if _p.get("current_mouse"):
+    if _p.get("current_mouse") and "date" not in _p["current_mouse"]:
         _p["current_mouse"]["date"] = _p["dates"]
 
 TEMPLATE = """<!DOCTYPE html>
@@ -754,7 +754,7 @@ for i, p in enumerate(projects):
             [_vcard(fname, label) for fname, label in videos] +
             [_ytcard(vid, label) for vid, label in youtube]
         )
-        video_block = f'''<h2>Runs</h2>
+        video_block = f'''<h2>Demos</h2>
         <div class="video-grid">
         {cards_html}
         </div>'''
@@ -968,7 +968,7 @@ for p in projects:
           <p class="video-label">{html.escape(label)}</p>
         </div>'''
             mv_cards_html = "\n        ".join(_mvcard(fname, label) for fname, label in mouse_videos)
-            mouse_video_block = f'''<h3>Runs</h3>
+            mouse_video_block = f'''<h3>Demos</h3>
         <div class="video-grid">
         {mv_cards_html}
         </div>'''
