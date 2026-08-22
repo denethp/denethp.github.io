@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Fully Analog DC Motor Speed Controller — Deneth Priyadarshana</title>
-<meta name="description" content="A closed-loop DC motor speed controller for EN2160 with no microcontroller anywhere in the loop: encoder feedback, PID and PWM generation done entirely with op-amps and discrete power electronics.">
+<meta name="description" content="A closed-loop DC motor speed controller with no microcontroller anywhere in the loop: encoder feedback, PID and PWM generation done entirely with op-amps and discrete power electronics.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%2300e5c7%22>&#9670;</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +41,7 @@
       </a>
     </div>
     <h1 class="proj-title">Fully Analog DC Motor Speed Controller</h1>
-    <p class="proj-lede">A closed-loop DC motor speed controller for EN2160 with no microcontroller anywhere in the loop: encoder feedback, PID and PWM generation done entirely with op-amps and discrete power electronics.</p>
+    <p class="proj-lede">A closed-loop DC motor speed controller with no microcontroller anywhere in the loop: encoder feedback, PID and PWM generation done entirely with op-amps and discrete power electronics.</p>
 
     <div class="proj-media proj-gallery">
       <a class="proj-presentation is-active" id="presentationMedia" href="https://www.canva.com/design/DAHIBe1Ph3U/AgemTcLJaJtfteaBAiZ2Lg/view?utm_content=DAHIBe1Ph3U&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hecbe5c174b#1" target="_blank" rel="noopener noreferrer">
@@ -75,7 +75,7 @@
     <div class="container proj-body">
       <div class="proj-main">
         <h2>Overview</h2>
-        <p>This EN2160 project regulates DC motor speed in closed loop without a single digital component in the control path. Encoder pulses are converted to a proportional analog voltage by a custom frequency-to-voltage converter (an RC low-pass filter, peak detector and signal-conditioning stage), giving continuous real-time speed feedback with no ADC sampling anywhere in between.</p>
+        <p>This project regulates DC motor speed in closed loop without a single digital component in the control path. Encoder pulses are converted to a proportional analog voltage by a custom frequency-to-voltage converter (an RC low-pass filter, peak detector and signal-conditioning stage), giving continuous real-time speed feedback with no ADC sampling anywhere in between.</p>
         <p>That feedback voltage is compared against a reference and run through a full analog PID controller built from TL072 op-amp stages implementing proportional, integral and derivative action directly in the analog domain. The PID output drives a custom analog PWM generator (a Schmitt-trigger oscillator, integrator and comparator producing a clean triangular carrier, followed by a precision rectifier and positive clipper to shape it into a clean 0–5V PWM signal), which finally switches an IRLZ44N logic-level MOSFET (with flyback diode and gate/pull-down protection) to drive the motor.</p>
         <p>My part of the loop was the PWM generation stage: designing the Schmitt-trigger oscillator, integrator and comparator chain, and getting the precision-rectifier output clean enough to reliably switch the MOSFET stage. Testing and tuning the whole loop entirely on hardware, with no software knob to fall back on, meant every gain, corner frequency and clipping threshold had to be nailed down through component selection and bench iteration.</p>
 
