@@ -100,19 +100,68 @@ if (galleryMain && galleryThumbs.length) {
   });
 }
 
-/* Lightbox — click the big project image to view it uncropped, full-size */
+/* Lightbox — click the big project image to view it uncropped, full-size.
+   When the page has a photo gallery (thumbnail strip), the lightbox also lets
+   you step left/right through the whole set without closing and reopening —
+   via the arrow buttons, the keyboard, or a swipe on touch devices. */
 const projMediaImgs = document.querySelectorAll('.proj-media > img');
 if (projMediaImgs.length) {
   const overlay = document.createElement('div');
   overlay.className = 'lightbox-overlay';
-  overlay.innerHTML = '<button class="lightbox-close" aria-label="Close">&times;</button><img class="lightbox-img" alt="">';
+  overlay.innerHTML = `
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Previous photo">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <img class="lightbox-img" alt="">
+    <button class="lightbox-nav lightbox-next" aria-label="Next photo">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+    <span class="lightbox-counter"></span>
+  `;
   document.body.appendChild(overlay);
   const lightboxImg = overlay.querySelector('.lightbox-img');
   const lightboxClose = overlay.querySelector('.lightbox-close');
+  const lightboxPrev = overlay.querySelector('.lightbox-prev');
+  const lightboxNext = overlay.querySelector('.lightbox-next');
+  const lightboxCounter = overlay.querySelector('.lightbox-counter');
+
+  // Build the navigable photo set from the gallery thumbnails (if any exist
+  // on this page) — the presentation thumb (if present) isn't a photo.
+  const photoThumbs = Array.from(document.querySelectorAll('.gallery-thumb'))
+    .filter(t => t.dataset.type !== 'presentation');
+  const galleryItems = photoThumbs.map(t => ({ src: t.dataset.src, alt: t.dataset.alt || '' }));
+  const hasNav = galleryItems.length > 1;
+  overlay.classList.toggle('has-nav', hasNav);
+  let currentIndex = -1;
+
+  const showAt = (index) => {
+    if (!galleryItems.length) return;
+    currentIndex = (index + galleryItems.length) % galleryItems.length;
+    const item = galleryItems[currentIndex];
+    lightboxImg.src = item.src;
+    lightboxImg.alt = item.alt;
+    lightboxCounter.textContent = `${currentIndex + 1} / ${galleryItems.length}`;
+    // Keep the page underneath in sync (main image + active thumb), so
+    // whatever the lightbox was left showing is what the gallery reflects
+    // once it's closed.
+    if (galleryMain) {
+      if (presentationMedia) presentationMedia.classList.remove('is-active');
+      galleryMain.style.display = '';
+      galleryMain.src = item.src;
+      galleryMain.alt = item.alt;
+    }
+    photoThumbs.forEach((t, i) => t.classList.toggle('is-active', i === currentIndex));
+  };
 
   const openLightbox = (src, alt) => {
-    lightboxImg.src = src;
-    lightboxImg.alt = alt || '';
+    const idx = galleryItems.findIndex(g => g.src === src);
+    if (hasNav && idx !== -1) {
+      showAt(idx);
+    } else {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || '';
+    }
     overlay.classList.add('is-open');
     document.body.classList.add('lightbox-open');
   };
@@ -122,15 +171,32 @@ if (projMediaImgs.length) {
   };
 
   projMediaImgs.forEach(img => {
-    img.addEventListener('click', () => openLightbox(img.src, img.alt));
+    img.addEventListener('click', () => openLightbox(img.getAttribute('src'), img.alt));
   });
   lightboxClose.addEventListener('click', closeLightbox);
+  lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); showAt(currentIndex - 1); });
+  lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); showAt(currentIndex + 1); });
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) closeLightbox();
   });
   document.addEventListener('keydown', (e) => {
+    if (!overlay.classList.contains('is-open')) return;
     if (e.key === 'Escape') closeLightbox();
+    else if (hasNav && e.key === 'ArrowLeft') showAt(currentIndex - 1);
+    else if (hasNav && e.key === 'ArrowRight') showAt(currentIndex + 1);
   });
+
+  // Swipe left/right on touch devices to step through the gallery.
+  if (hasNav) {
+    let touchStartX = null;
+    overlay.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+    overlay.addEventListener('touchend', (e) => {
+      if (touchStartX === null) return;
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) showAt(dx > 0 ? currentIndex - 1 : currentIndex + 1);
+      touchStartX = null;
+    }, { passive: true });
+  }
 }
 
 /* Video run demos: whether a video is available is now decided at build time
