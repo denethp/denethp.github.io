@@ -288,19 +288,24 @@ ul{ margin:0; padding:0; list-style:none; }
   padding:4px 11px; border-radius:999px; white-space:nowrap;
 }
 .publication-card h4{ font-size:1rem; font-weight:600; line-height:1.45; margin-bottom:10px; }
+.publication-title-link{ color: var(--text); transition: color .2s var(--ease); }
+.publication-title-link:hover{ color: var(--accent); }
 .publication-authors{ color: var(--text-dim); font-size:.88rem; margin-bottom:4px; }
 .publication-authors strong{ color: var(--text); }
 .publication-meta{ font-family: var(--font-mono); font-size:.78rem; color: var(--text-faint); }
+.publication-meta a{ color: var(--accent); }
+.publication-meta a:hover{ text-decoration: underline; }
 .publication-foot{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-top:14px; }
 .publication-foot .publication-meta{ margin:0; }
-.publication-download{
+.publication-actions{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.publication-view{
   display:inline-flex; align-items:center; gap:7px;
   font-size:.82rem; font-weight:600; color: var(--accent);
   background: var(--accent-soft); border:1px solid rgba(0,229,199,.3);
   padding:8px 16px; border-radius:999px; white-space:nowrap;
   transition: all .2s var(--ease);
 }
-.publication-download:hover{
+.publication-view:hover{
   background: var(--accent); color:#051512; border-color: var(--accent);
   transform: translateY(-2px); box-shadow: 0 10px 22px -10px rgba(0,229,199,.6);
 }
