@@ -293,7 +293,7 @@ projects = [
     tags="robotics embedded",
     gallery=[
       ("robot-front.jpg", "The completed competition robot"),
-      ("robot-isometric.jpg", "Isometric CAD view of the robot chassis"),
+      ("robot-isometric.jpg", "Angled view of the completed robot chassis"),
     ],
     videos=[
       ("multi-challenge-robot-line-following.mp4", "Dotted Line Following"),
