@@ -44,35 +44,11 @@
     <p class="proj-lede">A micromouse built to explore, map and solve a 16×16 maze at speed, competing nationally.</p>
 
     <div class="proj-media proj-gallery">
-      <img id="galleryMain" src="../assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-1.jpg" alt="Fully assembled micromouse — front three-quarter view">
+      <img id="galleryMain" src="../assets/img/projects/micromouse-maze-solver/chia-v4/chia-v4.jpg" alt="Chia v4 — the current generation micromouse">
     </div>
     <div class="gallery-thumbs">
-        <button class="gallery-thumb is-active" data-src="../assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-1.jpg" data-alt="Fully assembled micromouse — front three-quarter view" aria-label="View photo 1">
-          <img src="../assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-1.jpg" alt="Fully assembled micromouse — front three-quarter view" loading="lazy">
-        </button>
-        <button class="gallery-thumb" data-src="../assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-2.jpg" data-alt="Fully assembled micromouse — rear three-quarter view" aria-label="View photo 2">
-          <img src="../assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-2.jpg" alt="Fully assembled micromouse — rear three-quarter view" loading="lazy">
-        </button>
-        <button class="gallery-thumb" data-src="../assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-3.jpg" data-alt="Top-down view — battery, control board and wiring" aria-label="View photo 3">
-          <img src="../assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-3.jpg" alt="Top-down view — battery, control board and wiring" loading="lazy">
-        </button>
-        <button class="gallery-thumb" data-src="../assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-4.jpg" data-alt="Fully assembled micromouse — side three-quarter view" aria-label="View photo 4">
-          <img src="../assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-4.jpg" alt="Fully assembled micromouse — side three-quarter view" loading="lazy">
-        </button>
-        <button class="gallery-thumb" data-src="../assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-5.jpg" data-alt="Ground-level view showing wheel and chassis clearance" aria-label="View photo 5">
-          <img src="../assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-5.jpg" alt="Ground-level view showing wheel and chassis clearance" loading="lazy">
-        </button>
-        <button class="gallery-thumb" data-src="../assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-6.jpg" data-alt="Partially assembled — motors and sensor wiring" aria-label="View photo 6">
-          <img src="../assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-6.jpg" alt="Partially assembled — motors and sensor wiring" loading="lazy">
-        </button>
-        <button class="gallery-thumb" data-src="../assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-7.jpg" data-alt="Partially assembled — control board and buzzer close-up" aria-label="View photo 7">
-          <img src="../assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-7.jpg" alt="Partially assembled — control board and buzzer close-up" loading="lazy">
-        </button>
-        <button class="gallery-thumb" data-src="../assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-8.jpg" data-alt="The custom control PCB — front and back" aria-label="View photo 8">
-          <img src="../assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-8.jpg" alt="The custom control PCB — front and back" loading="lazy">
-        </button>
-        <button class="gallery-thumb" data-src="../assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-9.jpg" data-alt="The custom control PCB — routing layout" aria-label="View photo 9">
-          <img src="../assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-9.jpg" alt="The custom control PCB — routing layout" loading="lazy">
+        <button class="gallery-thumb is-active" data-src="../assets/img/projects/micromouse-maze-solver/chia-v4/chia-v4.jpg" data-alt="Chia v4 — the current generation micromouse" aria-label="View photo 1">
+          <img src="../assets/img/projects/micromouse-maze-solver/chia-v4/chia-v4.jpg" alt="Chia v4 — the current generation micromouse" loading="lazy">
         </button>
     </div>
   </section>
@@ -81,40 +57,18 @@
     <div class="container proj-body">
       <div class="proj-main">
         <h2>Overview</h2>
-        <p>Micromouse competitions reward the intersection of speed and certainty: a robot has to map an unknown 16×16 maze in real time, then commit to the fastest verified route through it. This project tackles both halves of that problem, exploration and optimal-path execution, on a custom STM32-based mouse.</p>
-        <p>Real-time maze mapping runs alongside a flood-fill algorithm that recomputes the shortest known path to the goal as new walls are discovered. Once the maze is sufficiently mapped, the mouse switches to a speed run using motion-profiled trajectories.</p>
-        <p>Getting the mouse to actually hit those trajectories required PID control tuned with both feedback and feedforward terms, with the control loop parameters first modeled and validated in MATLAB before being deployed to hardware. This was critical for a robot where a few degrees of heading error compounds fast in a tight maze.</p>
+        <p>Micromouse competitions reward the intersection of speed and certainty: a robot has to map an unknown 16×16 maze in real time, then commit to the fastest verified route through it. The current generation, Chia v4, pushes this further with a suction fan for added traction and 7.4V coreless motors, reaching a verified stable top speed of up to 6 m/s.</p>
+        <p>Chia v4 uses a raw IR7 sensor array for wall detection during exploration and speed runs. Since this mouse is entered in upcoming competitions, most of its design and firmware details are being kept under wraps for now, with a full write-up to follow once those runs are complete.</p>
 
         <h2>Key Features</h2>
         <ul class="feature-list">
-          <li><span class="f-num">01</span><span>Real-time maze mapping during exploration runs, updated wall-by-wall as the mouse moves</span></li>
-          <li><span class="f-num">02</span><span>Flood-fill algorithm for continuously recomputing the shortest verified path to the goal</span></li>
-          <li><span class="f-num">03</span><span>Motion profiling for smooth acceleration/deceleration through straights and turns</span></li>
-          <li><span class="f-num">04</span><span>PID motor control with feedback and feedforward terms tuned via MATLAB system modeling</span></li>
-          <li><span class="f-num">05</span><span>Custom-designed control PCB (&quot;BLAZE v2.0&quot;) integrating the STM32, motor drivers and sensor interfacing on a maze-scale footprint</span></li>
-          <li><span class="f-num">06</span><span>1st place at MAZEX 1.0, Micromouse Competition organized by IEEE RAS &amp; IEEE WIE, University of Moratuwa (2026), piloted by Blaze v2</span></li>
-          <li><span class="f-num">07</span><span>The earlier Chia v2 generation was selected among the Top 10 teams at Micromaze 2.0, IIT</span></li>
+          <li><span class="f-num">01</span><span>Raw IR7 sensor array for wall detection during exploration and speed runs</span></li>
+          <li><span class="f-num">02</span><span>7.4V coreless motors paired with a suction fan for added traction at speed</span></li>
+          <li><span class="f-num">03</span><span>Verified stable top speed of up to 6 m/s</span></li>
+          <li><span class="f-num">04</span><span>Competed in the finals of SLIIT RoboFest 2026, University Category, after qualifying with the earlier Blaze v2 generation</span></li>
         </ul>
 
-        <h2>Demos</h2>
-        <div class="video-grid">
-        <div class="video-card yt-card" style="aspect-ratio:16/9" data-yt-id="k_U8wT8emE4" data-video-label="Search Run Demo">
-          <img src="https://i.ytimg.com/vi/k_U8wT8emE4/hqdefault.jpg" alt="Search Run Demo" loading="lazy">
-          <span class="yt-badge">YouTube</span>
-          <button type="button" class="yt-play-btn" aria-label="Play on YouTube" tabindex="-1">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          </button>
-          <p class="video-label">Search Run Demo</p>
-        </div>
-        <div class="video-card yt-card" style="aspect-ratio:16/9" data-yt-id="94TpTno4ck4" data-video-label="Fast Run Demo">
-          <img src="https://i.ytimg.com/vi/94TpTno4ck4/hqdefault.jpg" alt="Fast Run Demo" loading="lazy">
-          <span class="yt-badge">YouTube</span>
-          <button type="button" class="yt-play-btn" aria-label="Play on YouTube" tabindex="-1">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          </button>
-          <p class="video-label">Fast Run Demo</p>
-        </div>
-        </div>
+        
       </div>
 
       <aside class="proj-side">
@@ -122,11 +76,11 @@
           <h4>Project Info</h4>
           <div class="side-row"><span>Status</span><span>Ongoing</span></div>
           <div class="side-row"><span>Timeline</span><span>Jun 2025 – Present</span></div>
-          <div class="side-row"><span>Role</span><span>End-to-End Design: 3D CAD Design, Hardware, Electronic &amp; PCB Design, Soldering, Firmware &amp; Control Systems, and Trajectory Planning</span></div>
+          <div class="side-row"><span>Role</span><span>Control Systems &amp; Firmware Development, Trajectory &amp; Path Planning, Component Selection, and Algorithm Development</span></div>
         </div>
         <div class="side-card">
           <h4>Tech Stack</h4>
-          <div class="chip-row"><span>STM32</span><span>N20 DC Motors (1000 RPM)</span><span>C/C++</span><span>Altium Designer</span><span>SOLIDWORKS</span><span>MATLAB</span></div>
+          <div class="chip-row"><span>IR7 Sensor Array</span><span>7.4V Coreless Motors</span><span>Suction Fan</span></div>
         </div>
         <div class="side-card side-cta">
           <p class="cv-note">CV available upon request</p>
@@ -138,9 +92,18 @@
 
     <div class="container family-section">
       <h2>Older Micromice</h2>
-      <p class="gen-intro">Blaze v2 (above) is the current mouse. Before it came four earlier builds. Full write-ups for all of them live in the
+      <p class="gen-intro">Chia v4 (above) is the current mouse. Before it came five earlier builds. Full write-ups for all of them live in the
         <a href="https://github.com/denethp/micromouse-showcase" target="_blank" rel="noopener">micromouse-showcase</a> repo.</p>
       <div class="mouse-card-grid">
+        <a class="mouse-card" href="mice/blaze-v2.html">
+          <img src="../assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-1.jpg" alt="Blaze v2" loading="lazy">
+          <div class="mouse-card-body">
+            <span class="mouse-card-date">Mar. 2026</span>
+            <h3>Blaze v2</h3>
+            <p class="mouse-card-tagline">MAZEX 1.0 champion</p>
+            <span class="mouse-card-meta">STM32 · Custom 4-layer PCB</span>
+          </div>
+        </a>
         <a class="mouse-card" href="mice/blaze-v1.html">
           <img src="../assets/img/projects/micromouse-maze-solver/blaze-v1/blaze-v1.jpg" alt="Blaze v1" loading="lazy">
           <div class="mouse-card-body">

@@ -47,7 +47,7 @@
   <section id="home" class="hero container">
     <div class="hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="dot-live"></span>Available for internships &amp; collaborations</p>
+        <p class="eyebrow"><span class="dot-live"></span>Available for collaborations</p>
         <h1 class="hero-title">
           Building intelligent<br>
           <span class="text-gradient">robotic systems</span><br>
@@ -66,7 +66,7 @@
           <div class="stat"><span class="stat-num">3.83</span><span class="stat-label">CGPA / 4.0</span></div>
           <div class="stat"><span class="stat-num">10+</span><span class="stat-label">Robotics Projects</span></div>
           <div class="stat"><span class="stat-num">1×</span><span class="stat-label">National Champion</span></div>
-          <div class="stat"><span class="stat-num">2×</span><span class="stat-label">National Finalist</span></div>
+          <div class="stat"><span class="stat-num">4×</span><span class="stat-label">National Finalist</span></div>
         </div>
       </div>
       <div class="hero-visual">
@@ -215,6 +215,18 @@
         <h4>Micromaze 2.0</h4>
         <p>Finalists: IIT Micromaze Competition (2025) organized by the Informatics Institute of Technology, with Team Maze Hackers' <a class="competition-link" href="projects/mice/chia-v2.html">Chia v2</a>.</p>
       </div>
+      <div class="competition-card">
+        <span class="competition-badge badge-finalist">Finalist</span>
+        <span class="award-icon">🐭</span>
+        <h4>Micromaze 3.0</h4>
+        <p>Finalists: IIT Micromaze Competition (2026) organized by the Informatics Institute of Technology, with <a class="competition-link" href="projects/micromouse-maze-solver.html">Blaze v2</a> in both the qualifying and final rounds. Placed 2nd in qualifying; during the final, a stray light in the hall (not present during qualifiers) caused a false obstacle detection right at the start, stalling the robot until it was removed, after which performance matched the qualifying result.</p>
+      </div>
+      <div class="competition-card">
+        <span class="competition-badge badge-finalist">Finalist</span>
+        <span class="award-icon">🐭</span>
+        <h4>RoboFest 2026</h4>
+        <p>Finalists: SLIIT RoboFest 2026, University Category, organized by the Faculty of Engineering, SLIIT (2026), with Team PRISM. Qualified with <a class="competition-link" href="projects/micromouse-maze-solver.html">Blaze v2</a>, then competed in the finals with <a class="competition-link" href="projects/micromouse-maze-solver.html">Chia v4</a>.</p>
+      </div>
     </div>
   </section>
 
@@ -257,10 +269,33 @@
 
     <div class="project-grid" id="projectGrid">
 
-      <a class="project-card-link" href="projects/6dof-robotic-arm.html"><article class="project-card has-media" data-tags="robotics vision embedded">
+      <a class="project-card-link" href="projects/micromouse-maze-solver.html"><article class="project-card has-media is-featured" data-tags="robotics embedded">
+        <div class="card-media" style="background-image:url('assets/img/projects/micromouse-maze-solver/chia-v4/chia-v4.jpg')"></div>
+        <div class="project-top">
+          <div class="project-top-left">
+            <span class="project-featured-badge">★ Featured</span>
+            <span class="project-tag">Jun 2025 – Present</span>
+          </div>
+          <span class="project-status status-active">Ongoing</span>
+        </div>
+        <h3>Micromouse Autonomous Maze Solver</h3>
+        <p>Autonomous micromouse for high-speed exploration and optimal navigation of a 16×16 maze. The current generation, Chia v4, uses a raw IR7 sensor array with 7.4V coreless motors and a suction fan, reaching a verified stable top speed of up to 6 m/s.</p>
+        <div class="project-stack">
+          <span>IR7 Sensor Array</span><span>7.4V Coreless Motors</span><span>Suction Fan</span>
+        </div>
+        <div class="project-cta">
+          <span>View Project</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </div>
+      </article></a>
+
+      <a class="project-card-link" href="projects/6dof-robotic-arm.html"><article class="project-card has-media is-featured" data-tags="robotics vision embedded">
         <div class="card-media" style="background-image:url('assets/img/projects/6dof-robotic-arm/arm-final-hero.jpg')"></div>
         <div class="project-top">
-          <span class="project-tag">Feb 2026 – Jul 2026</span>
+          <div class="project-top-left">
+            <span class="project-featured-badge">★ Featured</span>
+            <span class="project-tag">Feb 2026 – Jul 2026</span>
+          </div>
           <span class="project-status">Completed</span>
         </div>
         <h3>6-DOF Robotic Arm</h3>
@@ -274,27 +309,13 @@
         </div>
       </article></a>
 
-      <a class="project-card-link" href="projects/micromouse-maze-solver.html"><article class="project-card has-media" data-tags="robotics embedded">
-        <div class="card-media" style="background-image:url('assets/img/projects/micromouse-maze-solver/blaze-v2/blaze-v2-1.jpg')"></div>
-        <div class="project-top">
-          <span class="project-tag">Jun 2025 – Present</span>
-          <span class="project-status status-active">Ongoing</span>
-        </div>
-        <h3>Micromouse Autonomous Maze Solver</h3>
-        <p>Autonomous micromouse for high-speed exploration and optimal navigation of a 16×16 maze, with real-time mapping, flood-fill path planning, motion profiling and PID control tuned via MATLAB system modeling.</p>
-        <div class="project-stack">
-          <span>STM32</span><span>N20 Motors</span><span>C/C++</span><span>Altium</span><span>MATLAB</span>
-        </div>
-        <div class="project-cta">
-          <span>View Project</span>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17L17 7M7 7h10v10"/></svg>
-        </div>
-      </article></a>
-
-      <a class="project-card-link" href="projects/ros2-vision-line-follower.html"><article class="project-card has-media" data-tags="robotics vision embedded">
+      <a class="project-card-link" href="projects/ros2-vision-line-follower.html"><article class="project-card has-media is-featured" data-tags="robotics vision embedded">
         <div class="card-media logo-media" style="background-image:url('assets/img/projects/ros2-vision-line-follower/ros2-vision-line-follower-logo.png')"></div>
         <div class="project-top">
-          <span class="project-tag">Jun 2026 – Present</span>
+          <div class="project-top-left">
+            <span class="project-featured-badge">★ Featured</span>
+            <span class="project-tag">Jun 2026 – Present</span>
+          </div>
           <span class="project-status status-active">Ongoing</span>
         </div>
         <h3>ROS 2 Vision-Based Line Follower</h3>
@@ -486,6 +507,19 @@
       <div class="tl-item">
         <div class="tl-marker"></div>
         <div class="tl-content">
+          <div class="tl-head">
+            <div class="tl-title-group">
+              <img src="assets/img/logos/rad-lanka-logo.png" alt="RAD Lanka Port City logo" class="tl-logo">
+              <h3>Robotics Engineer Intern — Robotic Assistance Devices (RAD)</h3>
+            </div>
+            <span class="tl-date">Incoming</span>
+          </div>
+          <p>Currently awaiting the start of a robotics engineer internship at Robotic Assistance Devices, RAD Lanka Port City, an AITX company.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-marker"></div>
+        <div class="tl-content">
           <div class="tl-head"><h3>Private Tutor — Mathematics</h3><span class="tl-date">2023 — 2025</span></div>
           <p>Conducted individual classes for G.C.E. Advanced Level Combined Mathematics.</p>
         </div>
@@ -513,7 +547,7 @@
     <div class="contact-panel">
       <div>
         <h2 class="section-title">Let's build something<br><span class="text-gradient">autonomous</span> together.</h2>
-        <p class="section-sub">Open to internships, research collaborations and interesting robotics problems.</p>
+        <p class="section-sub">Open to research collaborations and interesting robotics problems.</p>
       </div>
       <div class="contact-links">
         <a class="contact-link" href="mailto:sadpriyadarshana@gmail.com">
