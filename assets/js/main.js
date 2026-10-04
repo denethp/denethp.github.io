@@ -268,19 +268,30 @@ if (videoCards.length) {
   });
 }
 
-/* "Request CV" buttons: open a WhatsApp chat (pre-filled message) in a new
-   tab AND scroll the current page down to the Contact section, so the visit
-   naturally lands where the phone/email/LinkedIn details also live. */
+/* "Request CV" buttons: open a pre-filled Gmail compose window (to Deneth,
+   subject + body already filled in) in a new tab AND scroll/navigate the
+   current page to the Contact section, so the visit naturally lands where
+   the email/LinkedIn details also live. A Gmail compose link is used
+   instead of a plain mailto: so the button reliably opens something even
+   on machines with no default desktop mail client configured.
+   The new-tab open is done explicitly via window.open() (with
+   preventDefault() on the click) rather than relying on the anchor's own
+   target="_blank" — on project detail pages the handler also reassigns
+   window.location.href in the same click, and letting the browser's
+   default navigation and that reassignment race against each other meant
+   the new tab sometimes never opened. Opening it explicitly first removes
+   that race. */
 document.querySelectorAll('.cv-request-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.open(btn.href, '_blank', 'noopener');
     const contact = document.getElementById('contact');
     if (contact) {
       // Already on the main page — just scroll down to it.
       contact.scrollIntoView({ behavior: 'smooth' });
     } else if (btn.dataset.contactUrl) {
       // On a project detail page — no #contact section here, so navigate
-      // the current tab to the main page's contact section instead (the
-      // WhatsApp link itself still opens separately in a new tab).
+      // the current tab to the main page's contact section instead.
       window.location.href = btn.dataset.contactUrl;
     }
   });
